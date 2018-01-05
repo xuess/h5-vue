@@ -1,0 +1,779 @@
+<template>
+	<div class="text_alert pd15">
+		<!--<div class="alert">
+			<h2><span>商品文案</span> <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="close"><path d="M8.142 6.6l-5.53-5.53c-.42-.42-1.115-.425-1.54 0-.43.43-.427 1.117-.002 1.543l5.53 5.53-5.53 5.528c-.42.422-.425 1.117 0 1.543.43.43 1.117.427 1.543 0l5.53-5.528 5.528 5.53c.422.42 1.117.424 1.543-.002.43-.43.427-1.116 0-1.542L9.686 8.143l5.53-5.53c.42-.42.424-1.115-.002-1.54-.43-.43-1.116-.427-1.542-.002L8.143 6.6z" fill="#FFF" fill-rule="evenodd"></path></svg></h2>
+			<div class="wrapper">
+				<p id="J-text" data-collection="_path=9001.CA.0.i.534298049505.e.3" class="item-text">鑫宝鹭 家用双面伸缩杆擦 <br> 【原价】:26.90元 <br>【券后】: 16.90元秒杀[闪电]<br>优惠下单：http://quan.tfbcoupon.com/x/58e77330 <br>【复制打开手机淘宝】<br>领取下单￥1xgL09vXKUx￥<br>【推荐语】:加大旋转擦头，擦刮同步，可伸缩加粗加厚不锈钢杆，低处高处都能擦，一面擦一面刮，轻松清洁不留痕迹！</p>
+				<div class="bar"><button id="copy-trigger-text" data-collection="_path=9001.CA.0.i.534298049505.e.2" class="btn text">一键复制文案</button></div>
+			</div>
+			<p class="tip">复制文案，打开手机淘宝即可领取优惠券</p>
+		</div>-->
+		<div class="alert">
+			<h2><span>分享图片</span> <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="close"><path d="M8.142 6.6l-5.53-5.53c-.42-.42-1.115-.425-1.54 0-.43.43-.427 1.117-.002 1.543l5.53 5.53-5.53 5.528c-.42.422-.425 1.117 0 1.543.43.43 1.117.427 1.543 0l5.53-5.528 5.528 5.53c.422.42 1.117.424 1.543-.002.43-.43.427-1.116 0-1.542L9.686 8.143l5.53-5.53c.42-.42.424-1.115-.002-1.54-.43-.43-1.116-.427-1.542-.002L8.143 6.6z" fill="#FFF" fill-rule="evenodd"></path></svg></h2>
+			<div class="wrapper">
+				<img src="http://oss.lanlanlife.com/6245e7b72e16ae714baf63a37bc51241_789x800.jpg" style="width: 100%;"></div>
+			<p class="tip">长按保存图片</p>
+		</div>
+	</div>
+
+</template>
+
+<script>
+	export default {
+		name: 'TextAlert',
+		data() {
+			return {
+				msg: '',
+			};
+		},
+	};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="scss">
+	@import '../../assets/css/function.scss';
+	#app_detail .loading {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(255, 255, 255, .8) url(//oss1.lanlanlife.com/f5ed64b94f4bd995e5d8ea8dfda382a4_62x62.gif) no-repeat center;
+	}
+	
+	.az {
+		padding-bottom: 48px;
+	}
+	
+	nav {
+		position: relative;
+		background-color: #FFF;
+	}
+	
+	#app_detail ::-webkit-input-placeholder {
+		/* WebKit browsers */
+		color: #8C776E;
+	}
+	
+	#app_detail :-moz-placeholder {
+		/* Mozilla Firefox 4 to 18 */
+		color: #8C776E;
+		opacity: 1;
+	}
+	
+	#app_detail ::-moz-placeholder {
+		/* Mozilla Firefox 19+ */
+		color: #8C776E;
+		opacity: 1;
+	}
+	
+	#app_detail :-ms-input-placeholder {
+		/* Internet Explorer 10+ */
+		color: #8C776E;
+	}
+	
+	.a {
+		position: absolute;
+		width: 40px;
+		height: 40px;
+		background: url(//oss2.lanlanlife.com/9302c0ba7eca4730fe5a61bbadfb5272_21x13.png) no-repeat;
+		background-size: 13px 21px;
+		background-position: center;
+	}
+	
+	.b {
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		font-size: 17px;
+		color: #030303;
+	}
+	
+	.detail_return {
+		width: 44px;
+		height: 44px;
+		position: absolute;
+		top: 10px;
+		left: 15px;
+	}
+	
+	.sliders {
+		position: relative;
+	}
+	
+	.detail-swipe {
+		width: 3.75rem;
+		height: 3.40rem !important;
+		background-color: #F1F1F1;
+	}
+	
+	.cover img {
+		width: 3.75rem;
+		height: 3.75rem;
+	}
+	
+	.detail-info {
+		position: relative;
+		padding: 15px;
+		background-color: #FFF;
+	}
+	
+	.detail-info h3 {
+		color: #030303;
+		font-size: 16px;
+		-o-text-overflow: ellipsis;
+		/*兼容opera*/
+		text-overflow: ellipsis;
+		/*这就是省略号喽*/
+		overflow: hidden;
+		/*设置超过的隐藏*/
+		white-space: nowrap;
+		/*设置不折行*/
+	}
+	
+	.detail-info p.rec {
+		margin-top: .13rem;
+		color: #F16628;
+		font-size: 0.12rem;
+		line-height: 1;
+	}
+	
+	.detail-info .icon {
+		display: inline-block;
+		width: 13px;
+		height: 13px;
+	}
+	
+	.detail-info .icon.bao {
+		background: url(//oss.lanlanlife.com/e8ce4e883277e77f2e335dd0f450d116_26x26.png) no-repeat;
+		background-size: 13px;
+	}
+	
+	.detail-info .icon.xian {
+		background: url(//oss3.lanlanlife.com/a479f46088aff2b2f279a215bfc97148_26x26.png) no-repeat;
+		background-size: 13px;
+	}
+	
+	.detail-info .icon.tmall {
+		background: url(//oss1.lanlanlife.com/3ea7c827b7ae0b763e95530b492ac59d_26x26.png) no-repeat;
+		background-size: 13px;
+	}
+	
+	.detail-info .price {
+		position: relative;
+		height: 28px;
+		line-height: 28px;
+		padding-top: 12px;
+	}
+	
+	.detail-info .price s {
+		font-size: 0.11rem;
+		text-decoration: none;
+	}
+	
+	.detail-info .price .title {
+		font-size: 0.12rem;
+		color: #696969;
+		margin-right: 0.05rem;
+	}
+	
+	.detail-info .price .yPrice {
+		font-size: 0.2rem;
+		color: #FB610C;
+		margin-right: 0.05rem;
+	}
+	
+	.detail-info .price .oPrice {
+		color: #C7C4C4;
+		font-size: 0.12rem;
+		text-decoration: line-through;
+	}
+	
+	.detail-info .price .monthSales {
+		float: right;
+		color: #696969;
+		font-size: 0.12rem;
+	}
+	
+	.recommend,
+	.grade {
+		padding: 15px;
+		background-color: #FFF;
+	}
+	
+	.recommend label,
+	.grade label {
+		position: absolute;
+		color: #030303;
+		font-size: 14px;
+		font-weight: 400;
+		font-style: normal;
+		font-variant: normal;
+	}
+	
+	.grade h5 {
+		margin-bottom: 20px;
+		color: #030303;
+		font-size: 14px;
+		font-weight: 400;
+		font-style: normal;
+		font-variant: normal;
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: 0.1rem;
+	}
+	
+	.grade .name {
+		font-size: 0.14rem;
+		color: #030303;
+		margin-left: 0.1rem;
+		vertical-align: middle;
+	}
+	
+	.grade img {
+		height: 10px;
+		vertical-align: middle;
+	}
+	
+	.recommend p {
+		padding-left: 60px;
+		line-height: 1.4;
+		color: #696969;
+	}
+	
+	.grade .dsr {
+		margin-top: 20px;
+		font-size: 0;
+	}
+	
+	.dsr span {
+		display: inline-block;
+		text-align: center;
+		color: #696969;
+		font-size: 12px;
+		font-weight: 400;
+		font-style: normal;
+		font-variant: normal;
+		margin-right: 0.4rem;
+	}
+	
+	.dsr span:last-child {
+		margin-right: 0!important;
+	}
+	
+	.dsr .up {
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		background: url(//oss1.lanlanlife.com/68061408dc52928e999006abc815ad7f_22x20.png)no-repeat;
+		background-position: center;
+		background-size: 10px 10px;
+		margin-left: 5px;
+	}
+	
+	.dsr .down {
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		background: url(//oss2.lanlanlife.com/1313264fff5e57d89b81d6fe39fd06d2_22x20.png)no-repeat;
+		background-position: center;
+		background-size: 10px 10px;
+		margin-left: 5px;
+	}
+	
+	.text_alert {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 1;
+		background-color: rgba(0, 0, 0, .3);
+	}
+	
+	.pd15 {
+		padding: 0 15px;
+	}
+	
+	.tpwd-copy {
+		padding: 13px;
+		text-align: center;
+	}
+	
+	.tpwd-copy button {
+		color: #FFF;
+		font-size: 14px;
+		border: none;
+	}
+	
+	.tpwd-copy .copy-btn {
+		width: 100%;
+		background: -webkit-gradient(linear, left top, right top, from(#FEA358), to(#F81F11));
+		background: -webkit-linear-gradient(left, #FEA358, #F81F11);
+		background: -o-linear-gradient(left, #FEA358, #F81F11);
+		background: linear-gradient(to right, #FEA358, #F81F11);
+		border-radius: 4px 4px 0 0;
+		padding: 12px 0;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+	}
+	
+	.tpwd-copy .copy-btn img {
+		width: 18px;
+		height: 18px;
+		margin-right: 6px;
+	}
+	
+	.tpwd-copy .manual {
+		width: 230px;
+		height: 28px;
+		line-height: 28px;
+		border-radius: 4px;
+		background: -webkit-gradient(linear, left top, right top, from(#FEA358), to(#F81F11));
+		background: -webkit-linear-gradient(left, #FEA358, #F81F11);
+		background: -o-linear-gradient(left, #FEA358, #F81F11);
+		background: linear-gradient(to right, #FEA358, #F81F11);
+		margin-bottom: 11px;
+	}
+	
+	.tpwd-copy .copy-area {
+		color: #000;
+		font-size: 14px;
+		background: #FFF6F2;
+		text-align: center;
+		border: 1px dashed #FE814B;
+		border-radius: 0 0 4px 4px;
+		padding: 10px;
+	}
+	
+	.tpwd-copy .copy-area p {
+		font-weight: bold;
+		margin-bottom: 5px;
+	}
+	
+	.tpwd-copy .copy-area textarea {
+		width: 100%;
+		height: 14px;
+		line-height: 14px;
+		text-align: center;
+		border: none;
+		background-color: transparent;
+		resize: none;
+		margin-bottom: 5px;
+	}
+	
+	.item-text {
+		padding: 14px;
+		text-align: left;
+		font-size: 12px;
+		color: #000;
+		line-height: 1.5;
+		background-color: #FFF6F2;
+		border: 1px dashed #FE814B;
+	}
+	
+	.text_alert .alert {
+		margin-top: 25%;
+		width: 100%;
+		background-color: #FFF;
+	}
+	
+	.text_alert .alert h2 {
+		position: relative;
+		height: 47px;
+		line-height: 47px;
+		color: #FFF;
+		text-align: center;
+		background: #FF8154;
+		background: -webkit-gradient(linear, left top, right top, from(#FF8154), to(#Fc3E58));
+		background: -webkit-linear-gradient(left, #FF8154, #Fc3E58);
+		background: -o-linear-gradient(left, #FF8154, #Fc3E58);
+		background: linear-gradient(90deg, #FF8154, #Fc3E58);
+	}
+	
+	.text_alert .alert h2 .close {
+		position: absolute;
+		right: 15px;
+		top: 15px;
+	}
+	
+	.text_alert .alert .manual {
+		display: inline-block;
+		margin-top: 20px;
+		padding: 4px 8px;
+		color: #FFF;
+		background: #FF8154;
+		background: -webkit-gradient(linear, left top, right top, from(#FF8154), to(#Fc3E58));
+		background: -webkit-linear-gradient(left, #FF8154, #Fc3E58);
+		background: -o-linear-gradient(left, #FF8154, #Fc3E58);
+		background: linear-gradient(90deg, #FF8154, #Fc3E58);
+	}
+	
+	.text_alert .alert .wrapper {
+		padding: 20px 30px;
+		text-align: center;
+	}
+	
+	.text_alert .alert .btn {
+		display: inline-block;
+		width: 1.8rem;
+		height: 40px;
+		line-height: 40px;
+		font-size: 14px;
+		color: #FFF;
+		border-radius: 25px;
+		border: none;
+	}
+	
+	.text_alert .alert .bar {
+		padding-top: 15px;
+	}
+	
+	.text_alert .alert .btn.tpwd {
+		background-color: #F94B7A;
+	}
+	
+	.text_alert .alert .btn.text {
+		background: #FF8154;
+		background: -webkit-gradient(linear, left top, right top, from(#FF8154), to(#Fc3E58));
+		background: -webkit-linear-gradient(left, #FF8154, #Fc3E58);
+		background: -o-linear-gradient(left, #FF8154, #Fc3E58);
+		background: linear-gradient(90deg, #FF8154, #Fc3E58);
+	}
+	
+	.text_alert .alert .btn.green {
+		background-color: #70CC67;
+	}
+	
+	.text_alert .alert p.tip {
+		padding: 10px;
+		margin: 0;
+		color: #828888;
+		text-align: center;
+		font-size: 12px;
+		background-color: #F6F7F6;
+	}
+	
+	.text_alert .alert textarea {
+		width: 100%;
+		height: 220px;
+		line-height: 1.5;
+		font-size: 12px;
+		text-align: left;
+		border: 1px dashed #FE4B68;
+		background-color: #FFF6F2;
+		resize: none;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		overflow: auto;
+	}
+	
+	.footer {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		font-size: 13px;
+	}
+	
+	.footer ul {
+		display: -webkit-box;
+		/* OLD - iOS 6-, Safari 3.1-6 */
+		/* OLD - Firefox 19- (buggy but mostly works) */
+		display: -ms-flexbox;
+		/* TWEENER - IE 10 */
+		/* NEW - Chrome */
+		display: flex;
+		background-color: #FFF;
+		border-top: 1px solid #F3F3F3;
+	}
+	
+	.footer li {
+		-webkit-box-flex: 1;
+		/* OLD - iOS 6-, Safari 3.1-6 */
+		/* OLD - Firefox 19- */
+		/* Chrome */
+		-ms-flex: 1;
+		/* IE 10 */
+		flex: 1;
+		height: 48px;
+		line-height: 48px;
+	}
+	
+	.footer li a,
+	.footer li span {
+		display: block;
+		color: #7D8690;
+		text-align: center;
+	}
+	
+	.footer li img {
+		width: 20px;
+		vertical-align: text-bottom;
+	}
+	
+	.footer .browser {
+		background: url("//oss3.lanlanlife.com/455aa01ff035507494e9f608883c23ae_55x110.png") no-repeat center;
+		background-size: 100% 100%;
+		color: #FFF;
+	}
+	
+	.footer .browser>a {
+		color: #FFF;
+	}
+	
+	.footer .tpwd {
+		background: url("//oss.lanlanlife.com/3729f62bfd7b3ca31015348c64d039db_55x110.png") no-repeat center;
+		background-size: 100% 100%;
+	}
+	
+	.footer .tpwd>a {
+		color: #FFF;
+	}
+	
+	.footer .home-link {
+		width: 0.60rem;
+		line-height: 1;
+	}
+	
+	.footer .home-link img {
+		width: 18px;
+		margin-top: 10px;
+	}
+	
+	.footer .home-link span {
+		font-size: 12px;
+		margin-top: 5px;
+	}
+	
+	.footer .share-btn {
+		width: 0.60rem;
+		line-height: 1;
+	}
+	
+	.footer .share-btn img {
+		width: 18px;
+		margin-top: 10px;
+	}
+	
+	.footer .share-btn span {
+		font-size: 12px;
+		margin-top: 5px;
+	}
+	
+	.footer li.btn {
+		padding: 0 0.15rem;
+	}
+	
+	.open-browser {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #FAFAFA;
+	}
+	
+	.ob {
+		margin-top: 20px;
+		font-size: 18px;
+		color: #030303;
+		text-align: center;
+	}
+	
+	.ob p {
+		line-height: 35px;
+	}
+	
+	.ob img {
+		margin-top: 20px;
+		width: 95%;
+	}
+	
+	.multi-image {
+		padding-top: 20px;
+		padding-bottom: 20px;
+		text-align: center;
+	}
+	
+	.multi-image img {
+		width: 100%;
+		-webkit-touch-callout: default;
+	}
+	
+	.multi-image p button {
+		background-color: transparent;
+		color: #FE814B;
+		font-size: 14px;
+		padding: 0.07rem 0.28rem;
+		border: 1px solid #FE814B;
+		border-radius: 4px;
+	}
+	
+	.user-list {
+		position: absolute;
+		bottom: 0.5rem;
+		left: 50%;
+		-webkit-transform: translate(-50%, 0);
+		-ms-transform: translate(-50%, 0);
+		transform: translate(-50%, 0);
+	}
+	
+	.user-list p {
+		margin: 0 auto;
+		padding: 0 10px 0 5px;
+		height: 36px;
+		width: 2.8rem;
+		line-height: 36px;
+		color: #FFF;
+		border-radius: 25px;
+		background-color: rgba(90, 68, 68, .9);
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		overflow: hidden;
+		-o-text-overflow: ellipsis;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	
+	.user-list p img {
+		margin-top: 4px;
+		margin-right: 5px;
+		width: 28px;
+		height: 28px;
+		border-radius: 50%;
+		vertical-align: top;
+		font-size: 14px;
+	}
+	
+	.slide-fade-enter-active {
+		-webkit-transition: all .3s ease;
+		-o-transition: all .3s ease;
+		transition: all .3s ease;
+	}
+	
+	.slide-fade-leave-active {
+		-webkit-transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+		-o-transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+		transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+	}
+	
+	.slide-fade-enter,
+	.slide-fade-leave-to {
+		-webkit-transform: translateY(30px);
+		-ms-transform: translateY(30px);
+		transform: translateY(30px);
+		opacity: 0;
+	}
+	
+	.coupon {
+		padding: 0.1rem 0.17rem;
+		height: 0.78rem;
+		background-image: url("//oss2.lanlanlife.com/f732110854173bec85ad7781a7592dcb_156x698.png");
+		background-repeat: no-repeat;
+		background-position: center 0.12rem;
+		background-color: #F1F1F1;
+		background-size: auto 0.78rem;
+	}
+	
+	.coupon .amount {
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: 0.18rem;
+		line-height: 0.75rem;
+	}
+	
+	.coupon .amount s {
+		color: #FA6A06;
+		font-size: 0.2rem;
+		text-decoration: none;
+	}
+	
+	.coupon .amount b {
+		color: #FA6A06;
+		font-size: 0.4rem;
+	}
+	
+	.coupon .time {
+		display: inline-block;
+		vertical-align: middle;
+		width: 1.3rem;
+		margin-left: 0.1rem;
+		height: 0.37rem;
+	}
+	
+	.coupon .time s {
+		display: inline-block;
+		text-decoration: none;
+		font-size: 0.12rem;
+		margin-bottom: 0.05rem;
+		color: #696969;
+	}
+	
+	.coupon .time i {
+		color: #FE814B;
+	}
+	
+	.coupon .time b {
+		display: inline-block;
+		color: #696969;
+		font-size: 0.09rem;
+		-webkit-transform: scale(0.8);
+		-ms-transform: scale(0.8);
+		transform: scale(0.8);
+		margin-left: -0.09rem;
+	}
+	
+	.coupon .go-coupon {
+		display: inline-block;
+		vertical-align: middle;
+		color: #FFFFFF;
+		font-size: 0.14rem;
+		margin-right: 0.25rem;
+		line-height: 0.75rem;
+		float: right;
+	}
+	
+	.detail-error img {
+		display: block;
+		margin: 0 auto;
+		padding-top: 1rem;
+		width: 0.6rem;
+	}
+	
+	.detail-error h1 {
+		color: #333;
+		font-size: 0.2rem;
+		margin-top: 0.3rem;
+		text-align: center;
+	}
+	
+	.detail-error p {
+		color: #333333;
+		font-size: 0.16rem;
+		margin-top: 0.1rem;
+		text-align: center;
+	}
+	
+	.detail-error a {
+		display: block;
+		margin: 0.8rem auto 0 auto;
+		width: 160px;
+		height: 40px;
+		font-size: 0.16rem;
+		text-align: center;
+		line-height: 40px;
+		color: #FE3C24;
+		border: 1px solid #FE3C24;
+		border-radius: 4px;
+		background: #FFF;
+	}
+</style>

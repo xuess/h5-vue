@@ -1,0 +1,226 @@
+
+.divide{
+    height: 10px;
+    background: #F1F1F1;
+}
+
+/* 搜索 栏 */
+.search{
+    width: 100%;
+    padding: 7px 14px;
+    background-image: -webkit-gradient(linear, left top, right top, from(#FA7C54), to(#FD3F69));
+    background-image: -webkit-linear-gradient(left, #FA7C54 0%, #FD3F69 100%);
+    background-image: -o-linear-gradient(left, #FA7C54 0%, #FD3F69 100%);
+    background-image: linear-gradient(90deg, #FA7C54 0%, #FD3F69 100%);
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+.search .search-href{
+    display: inline-block;
+    width: 100%;
+}
+.search .form{
+    width: 100%;
+    color: #FFF;
+    font-size: 12px;
+    display: inline-block;
+    position: relative;
+}
+.search .form .placeholder {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.search .form .placeholder button{
+    width: 13px;
+    height: 13px;
+    background: url(//oss2.lanlanlife.com/57145c685260337e68ac19368eb72634_26x26.png) no-repeat;
+    background-size: 13px;
+    border: none;
+    margin-right: 5px;
+}
+.search input{
+    padding: 0 10px;
+    width: 100%;
+    height: 30px;
+    background: rgba(255,255,255,.4);
+    border: none;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: middle;
+    border-radius: 4px;
+    -webkit-appearance:none;
+}
+
+/* Tab 栏 */
+.tabs-wrapper {
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+    background: #fff;
+    position: fixed;
+    top: 44px;
+    z-index: 100;
+}
+.tabs-wrapper >div{
+    position: relative;
+}
+.tabs {
+    position: relative;
+    width: 100%;
+    /*隐藏滚动条*/
+    height: 50px;
+    padding-right: 40px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+}
+.tabs a {
+    display: inline-block;
+    line-height: 41px;
+    padding: 0 .2rem;
+    color: #333;
+    font-size: 16px;
+}
+.tabs a.tab-active {
+    color: #FE312A;
+    position: relative;
+}
+.tabs a.tab-active:after {
+    width: 55%;
+    height: 1px;
+    content: '';
+    background: -webkit-gradient(linear, left top, right top, from(#FE312A), to(#FE312A));
+    background: -webkit-linear-gradient(left, #FE312A 0%, #FE312A 100%);
+    background: -o-linear-gradient(left, #FE312A 0%, #FE312A 100%);
+    background: linear-gradient(90deg, #FE312A 0%, #FE312A 100%);
+    position: absolute;
+    bottom: 1px;
+    left: 24%;
+}
+.tabs-wrapper .category{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 42px;
+    height: 40px;
+    background: #fff url(//oss1.lanlanlife.com/256362e0f4cd43dfcc1150ceccf27631_26x28.png) no-repeat center;
+    background-size: 13px 14px;
+}
+
+
+/* 数据量 */
+.data-info{
+    clear: both;
+    height: .34rem;
+    line-height: .34rem;
+    text-align: center;
+    font-size: .12rem;
+    color: #9A9A9A;
+}
+.data-info s{
+    color: #FF8652;
+    text-decoration: none;
+}
+.data-info i{
+    display: inline-block;
+    width: 0.12rem;
+    height: 1px;
+    vertical-align: middle;
+    margin: 0 0.09rem;
+    background-color: #C9C9C9;
+}
+
+.categorys{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .6);
+    z-index: 999;
+    position: fixed;
+    top: 84px;
+}
+.categorys .wrapper{
+    background: #fff;
+    zoom: 1;
+    padding: 17px;
+    -webkit-box-shadow: 0 4px 8px 0 rgba(183, 183, 183, .5);
+    box-shadow: 0 4px 8px 0 rgba(183, 183, 183, .5);
+}
+.categorys .wrapper:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.categorys .category-cell{
+    width: 33.3%;
+    margin-bottom: .15rem;
+    float: left;
+}
+.categorys .category-cell .category-cell-item {
+    width: 100px;
+    height: .3rem;
+    line-height: .3rem;
+    color: #303030;
+    background: #F3F3F3;
+    font-size: 15px;
+    border-radius: 2px;
+    text-align: center;
+    margin: 0 auto;
+}
+.categorys .category-cell.router-link-exact-active .category-cell-item {
+    color: #fff;
+    background-image: -webkit-gradient(linear, right top, left top, color-stop(4%, #FA6A06), color-stop(98%, #FE332A));
+    background-image: -webkit-linear-gradient(right, #FA6A06 4%, #FE332A 98%);
+    background-image: -o-linear-gradient(right, #FA6A06 4%, #FE332A 98%);
+    background-image: linear-gradient(-90deg, #FA6A06 4%, #FE332A 98%);
+}
+.swipe .mint-swipe-items-wrap{
+    height: 2.06rem !important;
+}
+
+.swipe.new_swipe .mint-swipe-items-wrap{
+    height: 1.5rem !important;
+}
+
+.error{
+    margin-top: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+.error p{
+    color: #9A9A9A;
+    font-size: 14px;
+    line-height: 1.5;
+}
+.error img{
+    width: .82rem;
+}
+
+.d11-tag{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 36px;
+}
+
+#scroll_top_icon.on + a > #activity11{
+    bottom: 100px !important;
+}

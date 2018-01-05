@@ -1,0 +1,402 @@
+
+.lists .goods-two{
+    width: 49.3%;
+    background: #fff;
+    margin-bottom: 1.2%;
+}
+.lists .goods-two:nth-child(odd){
+    margin-right: 1.2%;
+}
+.lists .goods-two .cover-image{
+    position: relative;
+}
+.lists .goods-two .cover-image .image{
+    width: 100%;
+    height: 1.85rem;
+    display: block;
+}
+.lists .goods-two .cover-image .tong{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: .2rem;
+    line-height: .2rem;
+    background: -webkit-gradient(linear,left top, right top,from(rgba(234,120,51, .7)),to(rgba(246,55,11, .7)));
+    background: -webkit-linear-gradient(left,rgba(234,120,51, .7),rgba(246,55,11, .7));
+    background: -o-linear-gradient(left,rgba(234,120,51, .7),rgba(246,55,11, .7));
+    background: linear-gradient(90deg,rgba(234,120,51, .7),rgba(246,55,11, .7));
+    color: #FFF;
+    font-size: .1rem;
+    text-align: center;
+}
+.lists .goods-two .cover-image .tong img{
+    width: .1rem;
+    height: 10px;
+    vertical-align: middle;
+}
+.lists .goods-two .title{
+    height: .4rem;
+    line-height: .2rem;
+    color: #333;
+    font-size: 14px;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin: .06rem .1rem;
+}
+.lists .goods-two .title .tabsImg {
+    width: 13px;
+    margin-right: 3px;
+}
+.lists .goods-two .count{
+    color: #C7C4C4;
+    font-size: 12px;
+    margin: 0 .1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.lists .goods-two .count .alreadyBuy{
+    color: #B1AEAE;
+}
+.lists .goods-two .coupon {
+    padding: .08rem .1rem .05rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.lists .goods-two .coupon .price{
+    color: #FC3D37;
+    font-size: 12px;
+    display: inline-block;
+}
+.lists .goods-two .coupon .price b{
+    font-size: 22px;
+}
+.lists .goods-two .coupon .count-label{
+    width: 70px;
+    height: 23px;
+    color: #fff;
+    background: url(//oss1.lanlanlife.com/105634c31956b0be54ac867a209c26ca_46x140.png) no-repeat;
+    background-size: 70px 23px;
+    border-radius: 1px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.lists .goods-two .coupon .count-label strong{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.Affix {
+    z-index: 100;
+    position: fixed;
+}
+
+.activity-item{
+    padding: 0.1rem;
+}
+.activity-item .activity-logo{
+    text-align: center;
+    margin-bottom: 0.1rem;
+}
+.activity-item .activity-logo img{
+    width: 1.98rem;
+    display: block;
+    margin: 0 auto;
+}
+.activity-item1 .item{
+    text-align: center;
+}
+.activity-item1 .item img{
+    width: 3.55rem;
+    display: block;
+    margin: 0 auto;
+}
+.activity-item2 .item{
+    display: inline-block;
+    width: 48.5%;
+}
+.activity-item2 .item:first-child{
+    margin-right: 0.05rem;
+}
+.activity-item2 .item:last-child{
+    margin-left: 0.05rem;
+}
+.activity-item2 .item img{
+    width: 100%;
+    display: block;
+}
+.activity-item3 .item{
+    display: inline-block;
+    width: 31%;
+}
+.activity-item3 .item:nth-child(2){
+    margin: 0 0.1rem;
+}
+.activity-item3 .item img{
+    width: 100%;
+    display: block;
+}
+
+.gender{
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+}
+.gender-select{
+    position: fixed;
+    z-index: 9999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #FFF;
+    padding: 0.27rem 0.70rem 0.20rem 0.70rem;
+    border-radius: 0.02rem;
+    text-align: center;
+}
+.gender-select.show{
+    padding: 0.27rem 0.45rem 0.20rem 0.45rem;
+}
+.gender-select.show .close{
+    position: absolute;
+    right: 4%;
+    top: 4%;
+    color: #969696;
+    font-size: 0.24rem;
+}
+.gender-select h1{
+    text-align: center;
+    font-size: 0.22rem;
+    color: #333333;
+    margin-bottom: 0.1rem;
+}
+.gender-select p{
+    text-align: center;
+    font-size: 0.14rem;
+    color: #969696;
+    margin-bottom: 0.2rem;
+    white-space: nowrap;
+}
+.select-sex div{
+    width: 1.5rem;
+    height: 0.42rem;
+    margin: 0 auto 0.2rem auto;
+}
+.select-sex .girl, .select-sex .boy, .select-sex .pregnant{
+    width: 1.38rem; height: 0.36rem;  border-radius: 1rem;
+    display: flex; justify-content: center; align-items: center;
+    display: -webkit-flex; -webkit-justify-content: center; -webkit-align-items: center;
+}
+.select-sex .girl {
+    background: #FF91AA;
+    box-shadow: 0 2px 6px 0 #FFCEDC;
+    -moz-box-shadow: 0 2px 6px 0 #FFCEDC;
+    -o-box-shadow: 0 2px 6px 0 #FFCEDC;
+    -webkit-box-shadow: 0 2px 6px 0 #FFCEDC;
+}
+.select-sex .pregnant{
+    background: #E87EFE;
+    box-shadow: 0 2px 6px 0 #FFCEDC;
+    -moz-box-shadow: 0 2px 6px 0 #FFCEDC;
+    -o-box-shadow: 0 2px 6px 0 #FFCEDC;
+    -webkit-box-shadow: 0 2px 6px 0 #FFCEDC;
+}
+.select-sex .boy{
+    background: #87DDFE;
+    box-shadow: 0 2px 6px 0 #D2EDFF;
+    -moz-box-shadow: 0 2px 6px 0 #D2EDFF;
+    -o-box-shadow: 0 2px 6px 0 #D2EDFF;
+    -webkit-box-shadow: 0 2px 6px 0 #D2EDFF;
+}
+.select-sex .girl .icon-girl, .select-sex .pregnant .icon-pregnant{
+    width: 0.81rem; height: 0.195rem;
+}
+.select-sex .boy .icon-boy {
+    width: 0.81rem; height: 0.18rem;
+}
+
+#gender-btn{
+    margin-left: 0.1rem;
+    display: inline-block;
+    font-size: 12px;
+    width: .3rem;
+    height: .2rem;
+    vertical-align: middle;
+}
+#gender-btn.boy{
+    background: url("//oss.lanlanlife.com/ca102401f3f7764652eabfcf48b359a5_32x58.png") no-repeat center;
+    background-size: .29rem .16rem;
+}
+#gender-btn.girl{
+    background: url("//oss.lanlanlife.com/a1e5d850a3ec6c6e1a2fbe41160255d2_36x58.png") no-repeat center;
+    background-size: .29rem .18rem;
+}
+#gender-btn.pregnant{
+    background: url("//oss1.lanlanlife.com/73cb0cf026e805a886a23a0d56fa9cf1_40x60.png") no-repeat center;
+    background-size: .29rem .18rem;
+}
+
+
+
+.push-card-mask {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10000;
+}
+.push-card {
+    width: 2.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 2px 6px 0 rgba(174, 174, 174, .5);
+    box-shadow: 0 2px 6px 0 rgba(174, 174, 174, .5);
+    display: inline-block;
+}
+.push-card .top-tt {
+    width: 94px;
+    height: 23px;
+    top: -35px;
+}
+.push-card .close {
+    width: 41px;
+    height: 41px;
+    bottom: -49px;
+}
+.push-card .top-tt, .push-card .close {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.push-card .card-img {
+    width: 100%;
+    height: 2.11rem;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.push-card .tt {
+    font-size: 14px;
+    color: #333333;
+    margin: .1rem .15rem;
+}
+.push-card .tt img {
+    width: .13rem;
+    height: .13rem;
+    margin-right: 0.03rem;
+}
+.push-card .price {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 0 .2rem;
+    font-size: 14px;
+    color: #FE312A;
+}
+.push-card .price b {
+    font-size: 20px;
+}
+.push-card .price .coupon {
+    width: 64px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    color: #fff;
+    background: url(//oss1.lanlanlife.com/fb640489cd0121255cfa01ff35773dc9_48x128.png) no-repeat;
+    background-size: 64px 24px;
+}
+.push-card .btn {
+    width: 1.44rem;
+    height: .4rem;
+    line-height: .4rem;
+    border-radius: 1rem;
+    font-size: 16px;
+    color: #FFF;
+    margin: .15rem auto;
+    text-align: center;
+    background-image: -webkit-gradient(linear, left top, right top, from(#FE322A), color-stop(73%, #FA6A06));
+    background-image: -webkit-linear-gradient(left, #FE322A 0%, #FA6A06 73%);
+    background-image: -o-linear-gradient(left, #FE322A 0%, #FA6A06 73%);
+    background-image: linear-gradient(90deg, #FE322A 0%, #FA6A06 73%);
+}
+.fade-enter-active, .fade-leave-active {
+    -webkit-transition: opacity .6s;
+    -o-transition: opacity .6s;
+    transition: opacity .6s;
+}
+.bounce-enter-active {
+    -webkit-animation: bounce-in .5s;
+    animation: bounce-in .5s;
+}
+.bounce-leave-active {
+    -webkit-animation: bounce-in .5s reverse;
+    animation: bounce-in .5s reverse;
+}
+@-webkit-keyframes bounce-in {
+0% {
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        -webkit-transform: translate(-50%, -50%) scale(0);
+        transform: translate(-50%, -50%) scale(0);
+}
+100% {
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        -webkit-transform: translate(-50%, -50%) scale(1);
+        transform: translate(-50%, -50%) scale(1);
+}
+}
+@keyframes bounce-in {
+0% {
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        -webkit-transform: translate(-50%, -50%) scale(0);
+        transform: translate(-50%, -50%) scale(0);
+}
+100% {
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        -webkit-transform: translate(-50%, -50%) scale(1);
+        transform: translate(-50%, -50%) scale(1);
+}
+}
