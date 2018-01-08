@@ -6,6 +6,9 @@ import router from './router';
 import Vuex from 'vuex'
 import store from './store'
 import * as filters from './util/filter'
+// 注册全局
+import infiniteScroll from 'vue-infinite-scroll'
+Vue.use(infiniteScroll)
 //手淘 rem 方案
 //import 'lib-flexible'
 

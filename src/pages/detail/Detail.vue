@@ -11,9 +11,6 @@
 							<div class="swiper-pagination" slot="pagination"></div>
 						</swiper>
 						<a href="javascript:history.go(-1);"><img src="//oss.lanlanlife.com/d863edbc1bc617db70e2c1144f4c1079_60x60.png" alt="" class="detail_return"></a>
-						<!--<div class="user-list">
-
-						</div>-->
 					</div>
 					<div class="detail-info">
 						<h3>  <i class="icon tmall"></i> <span>{{goodsData.title}}</span></h3>
@@ -21,8 +18,9 @@
 						<div class="price"><span class="title">券后价</span> <span class="yPrice">¥{{goodsData.price | formatDoubleStart}}<s>{{goodsData.price | formatDoubleEnd}}</s></span> <span class="oPrice">¥{{goodsData.old_price}}</span> <span class="monthSales">{{goodsData.sales_num}}人已购</span></div>
 					</div>
 					<div class="divide"></div>
-					<div class="tpwd-copy"><button id="copy-trigger-tpwd" class="copy-btn"><img src="//oss.lanlanlife.com/3f75c9aed0c58300540c04ea703a3be2_36x36.png">
-                            一键复制淘口令
+					<div class="tpwd-copy">
+						<button class="copy-btn"><img src="//oss.lanlanlife.com/3f75c9aed0c58300540c04ea703a3be2_36x36.png">
+                            <span id="copy-trigger-tpwd" data-clipboard-target="#copy_tpwd">一键复制淘口令</span>
                         </button>
 						<div class="copy-area">
 							<div>
@@ -51,17 +49,17 @@
 						<a href="/saber/index?pid=mm_112040233_40946019_167804789" class="home-link"><img src="//oss3.lanlanlife.com/ddfdbaa6b0ec0c4ba98622940b7b5ffb_40x38.png" alt=""> <span>首页</span></a>
 					</li>
 					<li>
-						<a href="javascript:;" class="share-btn"><img src="//oss3.lanlanlife.com/9647feda49c08796a9782f85a1152f32_36x36.png" alt=""> <span>分享图片</span></a>
+						<a href="javascript:;" class="share-btn" @click="openShareImg"><img src="//oss3.lanlanlife.com/9647feda49c08796a9782f85a1152f32_36x36.png" alt=""> <span>分享图片</span></a>
 					</li>
 					<li class="btn tpwd">
-						<a href="javascript:;">复制淘口令</a>
+						<a href="javascript:;" @click="openAlert('code')">复制淘口令</a>
 					</li>
 					<li class="btn browser">
 						<a href="javascript:;" data-collection="_path=9001.CA.1321.i.560532820633.e.0">领券购买</a>
 					</li>
 				</ul>
 			</footer>
-			<text-alert v-show="showAlert" :prd-code-detail="prdCodeDetail"></text-alert>
+			<text-alert v-show="showAlert" @close-alert="closeAlert" :alert-tpye="alertTpye" :prd-code-detail="prdCodeDetail" :prd-code-img-url="prdCodeImgUrl"></text-alert>
 		</section>
 	</div>
 </template>
@@ -70,8 +68,10 @@
 	import { mapActions } from 'vuex'
 	import TextAlert from '@/pages/detail/TextAlert'
 	import api from '@/fetch/api'
+	import Clipboard from 'clipboard'
 	// require styles
 	import 'swiper/dist/css/swiper.css'
+	
 
 	import { swiper, swiperSlide } from 'vue-awesome-swiper'
 	
@@ -95,8 +95,12 @@
 					mousewheelControl: true,
 					observeParents: true
 				},
-				//弹窗
+				//弹窗 
 				showAlert: false,
+				//弹窗类别 img = 分享图片 code = 复制淘口令 
+				alertTpye: 'code',
+				//分享图片url
+				prdCodeImgUrl:'',
 				//商品数据
 				goodsData: {
 					"goods_id": "",
@@ -120,6 +124,15 @@
 		created() {
 			//加载首屏数据
 			this.getDetailData()
+			//scrolltop 到最上面
+			document.body.scrollTop = 0
+			document.documentElement.scrollTop = 0
+		},
+		
+		mounted() {
+			//一键复制
+			this.copyBuyCode()
+			
 		},
 		//计算属性
 		computed: {
@@ -141,6 +154,29 @@
 			}
 		},
 		methods: {
+			//一键复制淘口令
+			copyBuyCode(){
+				let clipboardCode = new Clipboard('#copy-trigger-tpwd');
+			
+				clipboardCode.on('success', function(e) {
+					e.trigger.innerHTML = "复制成功";
+					setTimeout(() => {
+						e.trigger.innerHTML = '一键复制淘口令';
+					}, 2000);
+				});
+		
+				clipboardCode.on('error', function(e) {
+					e.trigger.innerHTML = "复制失败，请长按复制";
+					setTimeout(() => {
+						e.trigger.innerHTML = '一键复制淘口令';
+					}, 2000);
+				});
+			},
+			//领券
+			goGetCoupon(){
+				
+			},
+			//获取 详情页数据
 			getDetailData() {
 				//获取首屏数据
 				api.getDetail({
@@ -153,6 +189,27 @@
 						}
 					})
 			},
+			//打开淘口令弹窗
+			openAlert(type){
+				this.alertTpye = type
+				this.showAlert = true
+			},
+			//生成分享二维码图片
+			openShareImg(){
+				api.getPrdCodeImgUrl({goods_id:this.$route.query.goods_id})
+					.then(res => {
+						if(res.success) {
+							this.prdCodeImgUrl = res.goods_img_url
+							
+							this.openAlert('img')
+						}
+						
+					})
+			},
+			//关闭弹窗
+			closeAlert(){
+				this.showAlert = false
+			}
 		},
 		//监控属性
 		watch: {

@@ -15,13 +15,14 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
+    "clipboard": "^1.7.1",
     "lib-flexible": "^0.3.2",
     "qs": "^6.5.1",
     "vue": "^2.5.2",
     "vue-awesome-swiper": "^2.6.7",
+    "vue-infinite-scroll": "^2.0.2",
     "vue-router": "^3.0.1",
-    "vuex": "^3.0.1",
-    "vue-infinite-scroll": "^2.0.2"
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

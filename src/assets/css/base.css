@@ -193,3 +193,7 @@ and (max-device-width : 1024px){
 :-ms-input-placeholder { /* Internet Explorer 10+ */
     color:    #FFF;
 }
+.divide {
+    height: 10px;
+    background: #F1F1F1;
+}

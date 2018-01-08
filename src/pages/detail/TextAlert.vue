@@ -1,31 +1,68 @@
 <template>
 	<div class="text_alert pd15">
-		<!--<div class="alert">
-			<h2><span>商品文案</span> <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="close"><path d="M8.142 6.6l-5.53-5.53c-.42-.42-1.115-.425-1.54 0-.43.43-.427 1.117-.002 1.543l5.53 5.53-5.53 5.528c-.42.422-.425 1.117 0 1.543.43.43 1.117.427 1.543 0l5.53-5.528 5.528 5.53c.422.42 1.117.424 1.543-.002.43-.43.427-1.116 0-1.542L9.686 8.143l5.53-5.53c.42-.42.424-1.115-.002-1.54-.43-.43-1.116-.427-1.542-.002L8.143 6.6z" fill="#FFF" fill-rule="evenodd"></path></svg></h2>
-			<div class="wrapper">
-				<p id="J-text" data-collection="_path=9001.CA.0.i.534298049505.e.3" class="item-text">鑫宝鹭 家用双面伸缩杆擦 <br> 【原价】:26.90元 <br>【券后】: 16.90元秒杀[闪电]<br>优惠下单：http://quan.tfbcoupon.com/x/58e77330 <br>【复制打开手机淘宝】<br>领取下单￥1xgL09vXKUx￥<br>【推荐语】:加大旋转擦头，擦刮同步，可伸缩加粗加厚不锈钢杆，低处高处都能擦，一面擦一面刮，轻松清洁不留痕迹！</p>
-				<div class="bar"><button id="copy-trigger-text" data-collection="_path=9001.CA.0.i.534298049505.e.2" class="btn text">一键复制文案</button></div>
-			</div>
-			<p class="tip">复制文案，打开手机淘宝即可领取优惠券</p>
-		</div>-->
 		<div class="alert">
-			<h2><span>分享图片</span> <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="close"><path d="M8.142 6.6l-5.53-5.53c-.42-.42-1.115-.425-1.54 0-.43.43-.427 1.117-.002 1.543l5.53 5.53-5.53 5.528c-.42.422-.425 1.117 0 1.543.43.43 1.117.427 1.543 0l5.53-5.528 5.528 5.53c.422.42 1.117.424 1.543-.002.43-.43.427-1.116 0-1.542L9.686 8.143l5.53-5.53c.42-.42.424-1.115-.002-1.54-.43-.43-1.116-.427-1.542-.002L8.143 6.6z" fill="#FFF" fill-rule="evenodd"></path></svg></h2>
-			<div class="wrapper">
-				<img src="http://oss.lanlanlife.com/6245e7b72e16ae714baf63a37bc51241_789x800.jpg" style="width: 100%;"></div>
-			<p class="tip">长按保存图片</p>
+			<h2><span>商品文案</span> <svg @click="closeAlert" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="close"><path d="M8.142 6.6l-5.53-5.53c-.42-.42-1.115-.425-1.54 0-.43.43-.427 1.117-.002 1.543l5.53 5.53-5.53 5.528c-.42.422-.425 1.117 0 1.543.43.43 1.117.427 1.543 0l5.53-5.528 5.528 5.53c.422.42 1.117.424 1.543-.002.43-.43.427-1.116 0-1.542L9.686 8.143l5.53-5.53c.42-.42.424-1.115-.002-1.54-.43-.43-1.116-.427-1.542-.002L8.143 6.6z" fill="#FFF" fill-rule="evenodd"></path></svg></h2>
+			<template v-if="alertTpye == 'code'">
+				<div class="wrapper">
+					<p id="J-text" class="item-text">
+						<template v-for="item in prdCodeDetail">{{item}} <br /></template>
+					</p>
+					<div class="bar"><button id="copy-trigger-text" data-clipboard-target="#J-text" class="btn text">一键复制文案</button></div>
+				</div>
+				<p class="tip">复制文案，打开手机淘宝即可领取优惠券</p>
+			</template>
+			<template v-else>
+				<div class="wrapper">
+					<img :src="prdCodeImgUrl" style="width: 100%;"></div>
+				<p class="tip">长按保存图片</p>
+			</template>
 		</div>
 	</div>
 
 </template>
 
 <script>
+	import Clipboard from 'clipboard'
+	
 	export default {
 		name: 'TextAlert',
+		props: {
+			alertTpye: String,
+			prdCodeDetail: Array,
+			prdCodeImgUrl: String
+		},
 		data() {
 			return {
 				msg: '',
 			};
 		},
+		mounted() {
+			//一键复制
+			this.copyBuyCode()
+		},
+		methods:{
+			//一键复制
+			copyBuyCode(){
+				let clipboardCode = new Clipboard('#copy-trigger-text');
+			
+				clipboardCode.on('success', function(e) {
+					e.trigger.innerHTML = "复制成功";
+					setTimeout(() => {
+						e.trigger.innerHTML = '一键复制文案';
+					}, 2000);
+				});
+		
+				clipboardCode.on('error', function(e) {
+					e.trigger.innerHTML = "复制失败，请长按复制";
+					setTimeout(() => {
+						e.trigger.innerHTML = '一键复制文案';
+					}, 2000);
+				});	
+			},
+			closeAlert(){
+				this.$emit('close-alert')
+			}
+		}
 	};
 </script>
 

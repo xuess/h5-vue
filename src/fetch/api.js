@@ -61,7 +61,7 @@ export default {
      * 商品流数据
      */
     getGoodsList(params) {
-//  		console.log(params)
+    		console.log('商品流数据 参数----->',params)
         return fetch('/h5-vue/jsonData/goodsList.json', params)
     },
     /**
@@ -69,6 +69,12 @@ export default {
      */
     getDetail(params) {
         return fetch('/h5-vue/jsonData/detail.json', params)
+    },
+    /**
+     * 获取商品图片，用于分享
+     */
+    getPrdCodeImgUrl(params) {
+        return fetch('/h5-vue/jsonData/prd-img.json', params)
     },
     
     
