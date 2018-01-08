@@ -7,20 +7,20 @@
             "id": "0"
         },
         {
-        	"name": "百货",
-        	"id": "1"
+            "name": "百货",
+            "id": "1"
         },
         {
-        	"name": "美食",
-        	"id": "2"
+            "name": "美食",
+            "id": "2"
         },
         {
-        	"name": "美妆",
-        	"id": "3"
+            "name": "美妆",
+            "id": "3"
         },
         {
-        	"name": "鞋包",
-        	"id": "4"
+            "name": "鞋包",
+            "id": "4"
         },
         {
             "name": "其他",
@@ -36,18 +36,18 @@
             "img_url": "http://oss1.lanlanlife.com/c0bb79e77b28d319a493b2dad82b3665_300x750.jpg"
         },
         {
-        	"action": {
-        		"type": "click",
-        		"url": "http://www.baidu.com"
-        	},
-        	"img_url": "http://oss1.lanlanlife.com/c0bb79e77b28d319a493b2dad82b3665_300x750.jpg"
+            "action": {
+                "type": "click",
+                "url": "http://www.baidu.com"
+            },
+            "img_url": "http://oss1.lanlanlife.com/c0bb79e77b28d319a493b2dad82b3665_300x750.jpg"
         },
         {
-        	"action": {
-        		"type": "click",
-        		"url": "http://www.baidu.com"
-        	},
-        	"img_url": "http://oss1.lanlanlife.com/c0bb79e77b28d319a493b2dad82b3665_300x750.jpg"
+            "action": {
+                "type": "click",
+                "url": "http://www.baidu.com"
+            },
+            "img_url": "http://oss1.lanlanlife.com/c0bb79e77b28d319a493b2dad82b3665_300x750.jpg"
         },
         {
             "action": {
@@ -56,48 +56,47 @@
             },
             "img_url": "http://oss1.lanlanlife.com/c0bb79e77b28d319a493b2dad82b3665_300x750.jpg"
         }
-        
     ],
     "second_category_list": [
-        {	
-        		"category_id":"21",
+        {
+            "category_id": "21",
             "img_url": "//oss1.lanlanlife.com/d33623ac39582767649d5aeae42d9ab7_84x84.jpg",
             "name": "卫衣绒衫"
         },
-        {	
-        	"category_id":"22",
-        	"img_url": "//oss1.lanlanlife.com/d33623ac39582767649d5aeae42d9ab7_84x84.jpg",
-        	"name": "卫衣绒衫"
+        {
+            "category_id": "22",
+            "img_url": "//oss1.lanlanlife.com/d33623ac39582767649d5aeae42d9ab7_84x84.jpg",
+            "name": "卫衣绒衫"
         },
-        {	
-        	"category_id":"23",
-        	"img_url": "//oss1.lanlanlife.com/d33623ac39582767649d5aeae42d9ab7_84x84.jpg",
-        	"name": "卫衣绒衫"
+        {
+            "category_id": "23",
+            "img_url": "//oss1.lanlanlife.com/d33623ac39582767649d5aeae42d9ab7_84x84.jpg",
+            "name": "卫衣绒衫"
         },
-        {	
-        	"category_id":"24",
-        	"img_url": "//oss1.lanlanlife.com/d33623ac39582767649d5aeae42d9ab7_84x84.jpg",
-        	"name": "卫衣绒衫"
+        {
+            "category_id": "24",
+            "img_url": "//oss1.lanlanlife.com/d33623ac39582767649d5aeae42d9ab7_84x84.jpg",
+            "name": "卫衣绒衫"
         },
-        {	
-        	"category_id":"25",
-        	"img_url": "//oss1.lanlanlife.com/d33623ac39582767649d5aeae42d9ab7_84x84.jpg",
-        	"name": "卫衣绒衫"
+        {
+            "category_id": "25",
+            "img_url": "//oss1.lanlanlife.com/d33623ac39582767649d5aeae42d9ab7_84x84.jpg",
+            "name": "卫衣绒衫"
         },
-        {	
-        	"category_id":"26",
-        	"img_url": "//oss1.lanlanlife.com/d33623ac39582767649d5aeae42d9ab7_84x84.jpg",
-        	"name": "卫衣绒衫"
+        {
+            "category_id": "26",
+            "img_url": "//oss1.lanlanlife.com/d33623ac39582767649d5aeae42d9ab7_84x84.jpg",
+            "name": "卫衣绒衫"
         },
-        {	
-        	"category_id":"27",
-        	"img_url": "//oss1.lanlanlife.com/d33623ac39582767649d5aeae42d9ab7_84x84.jpg",
-        	"name": "卫衣绒衫"
+        {
+            "category_id": "27",
+            "img_url": "//oss1.lanlanlife.com/d33623ac39582767649d5aeae42d9ab7_84x84.jpg",
+            "name": "卫衣绒衫"
         },
-        {	
-        	"category_id":"28",
-        	"img_url": "//oss1.lanlanlife.com/d33623ac39582767649d5aeae42d9ab7_84x84.jpg",
-        	"name": "卫衣绒衫"
+        {
+            "category_id": "28",
+            "img_url": "//oss1.lanlanlife.com/d33623ac39582767649d5aeae42d9ab7_84x84.jpg",
+            "name": "卫衣绒衫"
         }
     ],
     "topic_list": [

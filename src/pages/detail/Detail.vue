@@ -4,51 +4,41 @@
 			<section class="az">
 				<section>
 					<div class="sliders">
-						<div class="mint-swipe detail-swipe">
-							<div class="mint-swipe-items-wrap">
-								<div class="mint-swipe-item" style="transform: translate3d(-375px, 0px, 0px);"><img src="//oss2.lanlanlife.com/a58aeae67b5b5665574dcd25c8c6db3e_800x800.jpg"></div>
-								<div class="mint-swipe-item" style=""><img src="//oss3.lanlanlife.com/56f57df34155e9571f9a009eb0b485ea_800x800.jpg"></div>
-								<div class="mint-swipe-item is-active" style=""><img src="//oss2.lanlanlife.com/25e095d5a5e54ca77b2420ba5f842ad7_800x800.jpg"></div>
-								<div class="mint-swipe-item" style="transform: translate3d(-375px, 0px, 0px);"><img src="//oss3.lanlanlife.com/8dd5ee846ce7b5946433ec0aba8fd86f_800x800.jpg"></div>
-								<div class="mint-swipe-item" style="transform: translate3d(-375px, 0px, 0px);"><img src="//oss3.lanlanlife.com/b105be381c5dd65f51b00ece718ea3c0_800x800.jpg"></div>
-							</div>
-							<div class="mint-swipe-indicators-center">
-								<div class="mint-swipe-indicator"></div>
-								<div class="mint-swipe-indicator"></div>
-								<div class="mint-swipe-indicator is-active"></div>
-								<div class="mint-swipe-indicator"></div>
-								<div class="mint-swipe-indicator"></div>
-							</div>
-						</div>
-						<a href="javascript:;"><img src="//oss.lanlanlife.com/d863edbc1bc617db70e2c1144f4c1079_60x60.png" alt="" class="detail_return"></a>
-						<div class="user-list">
+						<swiper class="mint-swipe detail-swipe" :options="swiperOption" ref="mySwiper">
+							<swiper-slide class="swiper-item" v-for="(banner, index) in goodsData.img_list" :key="index">
+								<img :src="banner">
+							</swiper-slide>
+							<div class="swiper-pagination" slot="pagination"></div>
+						</swiper>
+						<a href="javascript:history.go(-1);"><img src="//oss.lanlanlife.com/d863edbc1bc617db70e2c1144f4c1079_60x60.png" alt="" class="detail_return"></a>
+						<!--<div class="user-list">
 
-						</div>
+						</div>-->
 					</div>
 					<div class="detail-info">
-						<h3>  <i class="icon tmall"></i> <span>车载纸巾盒 汽车用宝马奥迪大众扶手箱抽纸盒创意简约座式纸抽盒</span></h3>
-
-						<div class="price"><span class="title">券后价</span> <span class="yPrice">¥18<s>.00</s></span> <span class="oPrice">¥23.00</span> <span class="monthSales">660人已购</span></div>
+						<h3>  <i class="icon tmall"></i> <span>{{goodsData.title}}</span></h3>
+						<p class="rec" v-if="goodsData.desc">{{goodsData.desc}}</p>
+						<div class="price"><span class="title">券后价</span> <span class="yPrice">¥{{goodsData.price | formatDoubleStart}}<s>{{goodsData.price | formatDoubleEnd}}</s></span> <span class="oPrice">¥{{goodsData.old_price}}</span> <span class="monthSales">{{goodsData.sales_num}}人已购</span></div>
 					</div>
 					<div class="divide"></div>
-					<div class="tpwd-copy"><button id="copy-trigger-tpwd" data-collection="_path=9001.CA.1321.i.560532820633.e.1" class="copy-btn"><img src="//oss.lanlanlife.com/3f75c9aed0c58300540c04ea703a3be2_36x36.png">
+					<div class="tpwd-copy"><button id="copy-trigger-tpwd" class="copy-btn"><img src="//oss.lanlanlife.com/3f75c9aed0c58300540c04ea703a3be2_36x36.png">
                             一键复制淘口令
                         </button>
-						<div data-collection="_path=9001.CA.1321.i.560532820633.e.3" class="copy-area">
+						<div class="copy-area">
 							<div>
-								<p id="copy_tpwd">￥sUT909KVyqo￥</p>
+								<p id="copy_tpwd">{{goodsData.prd_code}}</p>
 							</div> <span>长按全选复制文字，然后打开［手机淘宝］即可领券购买</span></div>
 					</div>
 					<div class="coupon">
-						<a href="javascript:;" data-collection="_path=9001.CA.1321.i.560532820633.e.0"><span class="amount"><s>￥</s><b>5</b></span><span class="time"><s><i>优惠券</i>使用期限</s><b>2018.01.02-2018.01.09</b></span><span class="go-coupon">立即领券</span></a>
+						<a :href="goodsData.buy_url"><span class="amount"><s>￥</s><b>{{goodsData.coupon_num}}</b></span><span class="time"><s><i>优惠券</i>使用期限</s><b>{{goodsData.coupon_date}}</b></span><span class="go-coupon">立即领券</span></a>
 					</div>
 					<div class="recommend"><label>推荐语</label>
-						<p>“买就送防滑垫，时尚豪华纸巾盒，采用优质皮料，精湛工艺，内衬无纺布，弧形设计，可定制车标，时尚大气，彰显豪华”</p>
+						<p>“{{goodsData.recommend_str}}”</p>
 					</div>
-					<div class="divide"></div>
+					<!--<div class="divide"></div>
 					<div class="grade"><img src="//oss1.lanlanlife.com/d343c64fdedfd7d52407c3eeaef78f07_36x213.png"><span class="name">华美仕家居旗舰店</span>
 						<div class="dsr"><span>宝贝描述<b>4.9</b><i class="up"></i></span> <span>卖家服务<b>4.8</b><i class="up"></i></span> <span>物流服务<b>4.8</b><i class="up"></i></span></div>
-					</div>
+					</div>-->
 					<div class="divide"></div>
 					<div class="multi-image">
 						<p><button>查看图文详情</button></p>
@@ -71,86 +61,111 @@
 					</li>
 				</ul>
 			</footer>
-			<text-alert v-show="showAlert"></text-alert>
+			<text-alert v-show="showAlert" :prd-code-detail="prdCodeDetail"></text-alert>
 		</section>
 	</div>
 </template>
 
 <script>
+	import { mapActions } from 'vuex'
 	import TextAlert from '@/pages/detail/TextAlert'
+	import api from '@/fetch/api'
+	// require styles
+	import 'swiper/dist/css/swiper.css'
+
+	import { swiper, swiperSlide } from 'vue-awesome-swiper'
+	
 	export default {
 		components: {
+			swiper,
+			swiperSlide,
 			TextAlert
 		},
-		data(){
+		data() {
 			return {
-				showAlert : true
+				swiperOption: {
+					// 所有配置均为可选（同Swiper配置） 
+					notNextTick: true,
+					autoplay: 3000,
+					grabCursor: true,
+					setWrapperSize: true,
+					autoHeight: true,
+					pagination: '.swiper-pagination',
+					paginationClickable: true,
+					mousewheelControl: true,
+					observeParents: true
+				},
+				//弹窗
+				showAlert: false,
+				//商品数据
+				goodsData: {
+					"goods_id": "",
+			        "img_list": [],
+			        "title": "",
+			        "desc": "",
+			        "is_tmall": false,
+			        "is_jhs": false,
+			        "old_price": "00.00",
+			        "price": "00.00",
+			        "sales_num": "0",
+			        "prd_code": "",
+			        "coupon_num": "",
+			        "coupon_date": "",
+			        "recommend_str": "",
+			        "buy_url": ""
+				}
 			}
+		},
+		//创建之前
+		created() {
+			//加载首屏数据
+			this.getDetailData()
+		},
+		//计算属性
+		computed: {
+			swiper() {
+				return this.$refs.mySwiper.swiper;
+			},
+			prdCodeDetail(){
+				let res = []
+				if(this.goodsData != null){
+					res.push(this.goodsData.title);
+					res.push(`【原价】:${this.goodsData.old_price}元`) 
+					res.push(`【券后】: ${this.goodsData.price}元秒杀[闪电]`) 
+//					res.push(`优惠下单：http://quan.tfbcoupon.com/x/5b735f3c`) 
+					res.push(`【复制打开手机淘宝】`) 
+					res.push(`领取下单${this.goodsData.prd_code}`) 
+					res.push(`【推荐语】:${this.goodsData.recommend_str}`) 
+				}
+				return res
+			}
+		},
+		methods: {
+			getDetailData() {
+				//获取首屏数据
+				api.getDetail({
+						"goods_id": this.$route.query.goods_id
+					})
+					.then(res => {
+						console.log(res)
+						if(res.success) {
+							this.goodsData = res.goods
+						}
+					})
+			},
+		},
+		//监控属性
+		watch: {
+
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
 	@import '../../assets/css/function';
-	.mint-swipe {
-		overflow: hidden;
-		position: relative;
-		height: 100%;
-	}
 	
-	.mint-swipe-items-wrap {
-		position: relative;
-		overflow: hidden;
-		height: 100%;
-		-webkit-transform: translateZ(0);
-		transform: translateZ(0)
-	}
-	
-	.mint-swipe-items-wrap>div {
-		position: absolute;
-		-webkit-transform: translateX(-100%);
-		transform: translateX(-100%);
+	.swiper-item img{
 		width: 100%;
-		height: 100%;
-		display: none
-	}
-	
-	.mint-swipe-items-wrap>div.is-active {
-		display: block;
-		-webkit-transform: none;
-		transform: none;
-	}
-	
-	.mint-swipe-items-wrap img {
-		width: 100%;
-		height: 100%;
-		-webkit-touch-callout: default;
-	}
-	
-	.mint-swipe-indicators-right {
-		position: absolute;
-		bottom: 0.15rem;
-		right: 0.1rem;
-	}
-	
-	.mint-swipe-indicators-center {
-		position: absolute;
-		bottom: 0.15rem;
-		left: 50%;
-		transform: translate(-50%, 0);
-	}
-	
-	.mint-swipe-indicator {
-		width: 0.08rem;
-		height: 0.08rem;
-		display: inline-block;
-		border-radius: 100%;
-		background: rgba(0, 0, 0, 0.3);
-		margin: 0 0.03rem;
-	}
-	
-	.mint-swipe-indicator.is-active {
-		background: #FFFFFF;
 	}
 	
 	#app_detail .loading {
@@ -215,6 +230,7 @@
 		position: absolute;
 		top: 10px;
 		left: 15px;
+		z-index: 11;
 	}
 	
 	.sliders {

@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<router-link :to="{ path: 'detail', query: { id: 0}}" v-for="(item,index) in goodsList" :key="index">
+		<router-link :to="{ path: 'detail', query: { goods_id: item.goods_id}}" v-for="(item,index) in goodsList" :key="index">
 			<div class="goodsOne">
 				<div class="cover-image"><img :src="item.img_url" class="image">
 				</div>
@@ -30,7 +30,7 @@
 	    },
 		data() {
 			return {
-			};
+			}
 		},
 		
 	};

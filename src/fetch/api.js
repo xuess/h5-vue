@@ -64,6 +64,12 @@ export default {
 //  		console.log(params)
         return fetch('/h5-vue/jsonData/goodsList.json', params)
     },
+    /**
+     * 获取商品详数据
+     */
+    getDetail(params) {
+        return fetch('/h5-vue/jsonData/detail.json', params)
+    },
     
     
 }

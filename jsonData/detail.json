@@ -1,0 +1,26 @@
+{
+    "success": true,
+    "error_code": 0,
+    "goods": {
+        "goods_id": "1111222333",
+        "img_list": [
+            "//oss.lanlanlife.com/43d77b680913081d97eada59e0a31f97_800x800.jpg",
+            "//oss1.lanlanlife.com/5bee1ad8f3c1aefcb7975fab4edfb904_800x800.jpg",
+            "//oss.lanlanlife.com/98f1a259adf72e2caa93b873bb636d03_800x800.jpg",
+            "//oss1.lanlanlife.com/757fa8b5356f37624d94e28bc30a3bc7_800x800.jpg",
+            "//oss3.lanlanlife.com/e067a4f03654ecacedc60a8fc160900c_800x800.jpg"
+        ],
+        "title": "麦瑞蒂 上衣包臀裙两件套",
+        "desc": "超吸水",
+        "is_tmall": true,
+        "is_jhs": true,
+        "old_price": "39.00",
+        "price": "34.00",
+        "sales_num": "130322",
+        "prd_code": "￥FIDo0kKu9P8￥",
+        "coupon_num": "5",
+        "coupon_date": "2018.01.08-2018.01.09",
+        "recommend_str": "优质针织面料，手感柔软细腻，宽松针织上衣更舒适，包臀半身裙，修身显瘦秀出S曲线，秋冬温暖百搭神器，女神必备！",
+        "buy_url": "https://uland.taobao.com/coupon/edetail?e=OEstcoeyErsGQASttHIRqe%2FaDuM1QZmmH0GAYsuQ900PtnagYhoGoewthqW6nPSSCl0aYJZZ%2B8p%2Bk%2BsBzZiezb9fwBwwUiqlnA9wVgVdyE%2BYv9jr32O%2BJA%3D%3D&traceId=0bb75c5015153932468463030e&activityId=cb13e03a2b83421f8a4ac21696cc72ef"
+    }
+}

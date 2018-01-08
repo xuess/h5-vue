@@ -14,6 +14,11 @@
 			</div>
 		</div>
 		<product-item :goods-list="goodsList"></product-item>
+		
+		<div class="last-page" v-if="isLastPage">
+			<p class="last-page-p">没有更多了~</p>
+		</div>
+		
 	</div>
 </template>
 
@@ -21,7 +26,7 @@
 	import api from '@/fetch/api'
 	import * as _ from '@/util/tool'
 	import ProductItem from '@/pages/index/ProductItem'
-	import { mapGetters } from 'vuex'
+	import { mapGetters,mapActions } from 'vuex'
 	import BottomScrolling from './scrollToBottom.js'
 
 	export default {
@@ -47,37 +52,20 @@
 			//加载首屏数据
 			if(this.goodsList.length == 0) {
 				//获取数据
-				this.getGoodsListData(this);
+				this.getGoodsListData();
 			}
-
-			//滚动到底部 加载下一页
-			new BottomScrolling({
-				callback: () => {
-					console.log('分页啦');
-					this.getGoodsListData(this);
-				},
-				gap: 50
-			});
-			
-			//sortBar 滚动位置固定
-	        document.addEventListener('scroll', ()=>{
-	        		let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
-	        		if(this.sortBarTop == 0){
-	        			this.sortBarTop = document.querySelector('#J_sortBar').offsetTop;
-	        		}
-	        		console.log('this.sortBarTop == ',this.sortBarTop);
-				if(scrollTop > this.sortBarTop - 80){
-					this.Affix = true
-				}else{
-					this.Affix = false
-				}
-	        }, false)
-			
+			//滚到到底部自动加载下一页
+			this.scrollLoadGoods();
+			//商品排序条位置固定
+			this.sortBarScroll();
 		},
 		//计算属性
 		computed: {
+			//vuex数据
 			...mapGetters([
-				'goodsList'
+				'goodsList',
+				'isLastPage',
+				'updateGoods'
 			]),
 			//上一页六个商品id，首页为空
 			exsitGoodsidList: function() {
@@ -94,6 +82,10 @@
 		},
 		
 		methods: {
+			...mapActions([
+				'setGoodsListLength',
+				'getGoodsList'
+			]),
 			_debounceTail(fn, delay, ctx) {
 		        let movement = null
 		        return function() {
@@ -109,13 +101,13 @@
 		        }
 		    },
 			//sort_type	是	string	排序 1=精选，2=销量 ，3=最新，4=价格低到高 ，5=价格高到低
-			changeSortType: function(sortType) {
+			changeSortType(sortType) {
 				//价格升序4 改成降序
 				if(sortType == this.sortType){
 					if(sortType == 4){
 						this.sortType = 5
 					}else{
-						//更上次相同不查询
+						//跟上次相同不查询
 						return ;
 					}
 				}else{
@@ -124,22 +116,25 @@
 				
 				//页码清0
 				this.pageNo = 0
-				//清空goodsList
-				this.$store.dispatch('setGoodsListLength')
+				//清空goodsList 
+				//this.$store.dispatch('setGoodsListLength')
+				this.setGoodsListLength()
 				//切换排序 重新查询
-				this.getGoodsListData(this);
+				this.getGoodsListData();
 				
 				//scrolltop 到最上面
-				document.body.scrollTop = this.sortBarTop - 80
-				document.documentElement.scrollTop = this.sortBarTop - 80
+				//document.body.scrollTop = this.sortBarTop - 80
+				//document.documentElement.scrollTop = this.sortBarTop - 80
+				document.body.scrollTop = 0
+				document.documentElement.scrollTop = 0
 			},
-			//		first_cid	是	string	一级类目id
-			//		second_cid	否	string	分类
-			//		page_no	int	当前页码	
-			//		page_size	int	一页多少条	默认12
-			//		exsit_goodsid_list	array	上页的商品id列表(传6个)格式：6,5,4,3,2,2
-			//		sort_type	是	string	排序 1=精选，2=销量 ，3=最新，4=价格低到高 ，5=价格高到低
-			getGoodsListData: function(){
+			getGoodsListData(){
+				//first_cid	是	string	一级类目id
+				//second_cid	否	string	分类
+				//page_no	int	当前页码	
+				//page_size	int	一页多少条	默认12
+				//exsit_goodsid_list	array	上页的商品id列表(传6个)格式：6,5,4,3,2,2
+				//sort_type	是	string	排序 1=精选，2=销量 ，3=最新，4=价格低到高 ，5=价格高到低
 				let params = {
 					"first_cid": this.tabsId,
 					"second_cid": this.categoryId,
@@ -148,24 +143,57 @@
 					"exsit_goodsid_list": this.exsitGoodsidList,
 					"sort_type": this.sortType
 				};
-				this.$store.dispatch('getGoodsList', params)
+				//this.$store.dispatch('getGoodsList', params)
+				this.getGoodsList(params);
 			},
-			windowScroll(e) {
-				var _this = this;
-
-				var scrollTop = $(window).scrollTop();
-				var winHeight = $(window).height();
-				var bodyHeight = $(document).height();
-
-				if((scrollTop + 50 >= bodyHeight - winHeight) && !_this.model.isLastPage && !_this.model.isLoading) {
-					//_this.getResultList();
-				}
-				pastScrollTop = scrollTop;
+			/**
+			 * 排序条 滚动时 位置固定
+			 */
+			sortBarScroll() {
+				//节流
+//				let handle =  this._debounceTail((event) => {
+//          			
+//      			}, 17, this)
+				//sortBar 滚动位置固定
+		        document.addEventListener('scroll', () => {
+		        		let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+		        		if(this.sortBarTop == 0){
+		        			this.sortBarTop = document.querySelector('#J_sortBar').offsetTop;
+		        		}
+					if(scrollTop > this.sortBarTop - 80){
+						this.Affix = true
+					}else{
+						this.Affix = false
+					}
+		        }, false)
 			},
+			//滚动到底部 加载下一页
+			scrollLoadGoods(){
+				new BottomScrolling({
+					callback: () => {
+						console.log('分页啦');
+						this.getGoodsListData();
+					},
+					gap: 50
+				});
+			}
 		},
 		//监控属性
 		watch: {
-
+			//监听 是否更新 商品列表，用于切换 类目时操作
+			updateGoods:function(){
+				console.log('监听 ==> update goods')
+				//重新请求 商品列表
+				//排序方式初始化
+				this.sortType = 1
+				//页码清0
+				this.pageNo = 0
+				//清空goodsList 
+				//this.$store.dispatch('setGoodsListLength')
+				this.setGoodsListLength()
+				//切换排序 重新查询
+				this.getGoodsListData();
+			}
 		}
 	};
 </script>

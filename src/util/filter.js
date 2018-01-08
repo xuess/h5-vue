@@ -26,3 +26,23 @@ export const formatDate = (str) => {
         return parseInt(time / 31536000000) + '年前'
     }
 }
+/**
+ * 截取小数点后两位
+ * 
+ * @param {String} str
+ * @returns 
+ */
+export const formatDoubleEnd = (str) => {
+    if (!str) return ''
+    return str.substring(str.indexOf('.'))
+}
+/**
+ * 截取小数前面数字
+ * 
+ * @param {String} str
+ * @returns 
+ */
+export const formatDoubleStart = (str) => {
+    if (!str) return ''
+    return str.substring(0, str.indexOf('.'))
+}

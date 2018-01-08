@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="J_index">
 		<!--搜索框-->
 		<div style="width: 100%; height: 44px;">
 			<div class="search">
@@ -79,7 +79,11 @@
 	import * as _ from '@/util/tool'
 	import ProductList from '@/pages/index/ProductList'
 	import Swipe from '@/components/Swipe'
-
+	//瀑布流
+	import infiniteScroll from 'vue-infinite-scroll'
+	new Vue({
+	  directives: {infiniteScroll}
+	})
 	//	components
 	//	props
 	//	data
@@ -108,7 +112,7 @@
 				secondCategoryList: [],
 				topicList: [],
 				//展开分类
-				showCategory:false
+				showCategory:false,
 			}
 		},
 		//创建之前
@@ -125,10 +129,15 @@
 		beforeRouteUpdate(to, from, next) {
 			//把loading 放出来
 			//然后调接口 更新数据
-
 			console.log('to', to);
 			console.log('from', from);
 			console.log('next', next);
+			if(to.path.indexOf('/index') == -1){
+//				next()
+//				destroy
+				alert('走了！')
+				return;
+			}
 			//如果是tab_id变化
 			if(this.tabsId != to.query.tab_id) {
 				this.tabsId = to.query.tab_id;
@@ -138,17 +147,25 @@
 			} else {
 				//二级分类变化 只更新商品流
 				this.categoryId = to.query.c_id;
-
 			}
-
+			//切换 更新商品状态，触发商品列表更新
+//			this.$store.dispatch('setUpdateGoods')
+			this.setUpdateGoods()
+			//滚动到顶部
+			document.body.scrollTop = 0
+			document.documentElement.scrollTop = 0
 			next() //修改路径
 		},
 		methods: {
-			openCategory:function(){
+			//从 vuex 注册 setUpdateGoods 方法
+			...mapActions([
+				'setUpdateGoods',
+			]),
+			openCategory(){
 				this.showCategory = !this.showCategory;
 			},
 			//获取首屏数据
-			getIndexData: function() {
+			getIndexData() {
 				//获取首屏数据
 				api.getIndexData({
 						"tabs_id": this.tabsId,
@@ -164,6 +181,7 @@
 						}
 					})
 			},
+			
 			//			gotoTabs(index) {
 			//				this.$router.push({
 			//					path: 'index',

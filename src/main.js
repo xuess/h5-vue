@@ -9,6 +9,9 @@ import * as filters from './util/filter'
 //手淘 rem 方案
 //import 'lib-flexible'
 
+//注册过滤器
+Object.keys(filters).forEach(k => Vue.filter(k, filters[k]))
+
 //轮播
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 Vue.use(VueAwesomeSwiper)
