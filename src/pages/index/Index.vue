@@ -37,34 +37,48 @@
 			</div>
 		</div>
 
-		<!--轮播-->
-		<swipe :banner-list="bannerList"></swipe>
+		<template v-for="(item,index) in bannerList">
+			<template v-if="item.layout_type == 'lunbo'">
+				<!--轮播-->
+				<swipe :banner-list="item.module_list"></swipe>
+			</template>
+			<template v-if="item.layout_type == '3c1h'">
+				<!--主题资源-->
+				<div class="row topic-wrapper" v-if="item.module_list.length > 0">
+					<div class="col c4">
+						<router-link :to="{ path: 'topic', query: { find_type: item.module_list[0].title}}">
+							<img :src="item.module_list[0].image_url">
+						</router-link>
+					</div>
+					<div class="col c8">
+						<div class="topic-right">
+							<router-link :to="{ path: 'topic', query: { find_type: item.module_list[1].title}}">
+								<img :src="item.module_list[1].image_url">
+							</router-link>
+							<div class="row down">
+								<router-link class="col c6" :to="{ path: 'topic', query: { find_type: item.module_list[2].title}}">
+									<img :src="item.module_list[2].image_url">
+								</router-link>
+								<router-link class="col c6" :to="{ path: 'topic', query: { find_type: item.module_list[3].title}}">
+									<img :src="item.module_list[3].image_url">
+								</router-link>
+							</div>
+						</div>
+					</div>
+				</div>
+			</template>
+
+		</template>
 
 		<!--二级分类-->
-		<div class="category-two">
+		<!--<div class="category-two">
 			<div class="category-item" v-for="(item,index) in secondCategoryList">
 				<router-link :to="{ path: 'index', query: { tab_id: tabsId, c_id : item.category_id }}">
 					<h1><img :src="item.img_url" :alt="item.name"></h1>
 					<p :class="{'category-active': categoryId == item.category_id}">{{item.name}}</p>
 				</router-link>
 			</div>
-		</div>
-
-		<!--主题资源-->
-		<div class="row topic-wrapper" v-if="topicList.length > 0">
-			<div class="col c4">
-				<a href="#" class=""><img :src="topicList[0].img_url"></a>
-			</div>
-			<div class="col c8">
-				<div class="topic-right">
-					<a href="#" class=""><img :src="topicList[1].img_url"></a>
-					<div class="row down">
-						<a href="#" class="col c6"><img :src="topicList[2].img_url"></a>
-						<a href="#" class="col c6"><img :src="topicList[3].img_url"></a>
-					</div>
-				</div>
-			</div>
-		</div>
+		</div>-->
 
 		<!--灰色条-->
 		<div class="divide"></div>
@@ -86,15 +100,14 @@
 
 			<!--商品流-->
 			<div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10">
-
 				<router-link :to="{ path: 'detail', query: { goods_id: item.goods_id}}" v-for="(item,index) in goodsList" :key="index">
 					<div class="goodsOne">
 						<div class="cover-image"><img :src="item.img_url" class="image">
 						</div>
 						<div class="item-info">
 							<h1 class="title"><img src="//oss1.lanlanlife.com/f87493c5f309d8b282476c232df6bd4b_26x26.png" class="tabsImg" v-if="item.is_tmall">
-							<img  src="//oss3.lanlanlife.com/3f681b35cd2518c925786f7b44e24cf8_26x26.png" class="tabsImg" v-if="item.is_jhs">{{item.title}}
-				            </h1>
+								<img  src="//oss3.lanlanlife.com/3f681b35cd2518c925786f7b44e24cf8_26x26.png" class="tabsImg" v-if="item.is_jhs">{{item.title}}
+					            </h1>
 							<p class="rec">{{item.desc}}</p>
 							<div class="count"><span>原价 {{item.old_price}}元</span> <span class="alreadyBuy">{{item.sales_num}} 人已购</span></div>
 							<div class="coupon">
@@ -106,13 +119,14 @@
 						</div>
 					</div>
 				</router-link>
-
 			</div>
 
 			<div class="last-page" v-if="isLastPage">
 				<p class="last-page-p">没有更多了~</p>
 			</div>
 
+			<!--向上-->
+			<scroll-top></scroll-top>
 		</div>
 
 	</div>
@@ -123,10 +137,14 @@
 	import api from '@/fetch/api'
 	//	import * as _ from '@/util/tool'
 	import Swipe from '@/components/Swipe'
-	
+	import { _debounceTail } from '@/assets/js/util'
+
+	import ScrollTop from '@/components/ScrollTop'
+
 	export default {
 		components: {
 			Swipe,
+			ScrollTop
 		},
 		data() {
 			return {
@@ -136,8 +154,7 @@
 				categoryId: this.$route.query.c_id || 0,
 				bannerList: [],
 				categoryList: [],
-				secondCategoryList: [],
-				topicList: [],
+				//				secondCategoryList: [],
 				//展开分类
 				showCategory: false,
 				//----------------商品列表-------
@@ -159,14 +176,18 @@
 		created() {
 			//加载首屏数据
 			this.getIndexData();
-
+			//加载商品数据
+			this.loadMore();
 			//商品排序条位置固定
 			this.sortBarScroll();
+			//滚动到顶部
+			document.body.scrollTop = 0
+			document.documentElement.scrollTop = 0
 		},
 		//计算属性
 		computed: {
 			//上一页六个商品id，首页为空
-			exsitGoodsidList: function() {
+			exsitGoodsidList() {
 				let list = []
 				if(this.goodsList.length > 0) {
 					for(let i = this.goodsList.length - 6; i < this.goodsList.length; i++) {
@@ -174,7 +195,7 @@
 					}
 				}
 				return list
-			},
+			}
 		},
 		mounted() {},
 		//路由守护 跳转相同时，在此操作
@@ -230,8 +251,7 @@
 						if(res.success) {
 							this.bannerList = res.banner_list;
 							this.categoryList = res.category_list;
-							this.secondCategoryList = res.second_category_list;
-							this.topicList = res.topic_list;
+							//							this.secondCategoryList = res.second_category_list;
 						}
 						//loading 图标
 						this.setLoadingState(false)
@@ -315,8 +335,8 @@
 			 * 排序条 滚动时 位置固定
 			 */
 			sortBarScroll() {
-				//sortBar 滚动位置固定
-				document.addEventListener('scroll', () => {
+
+				let scrollFn = _debounceTail(() => {
 					let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
 					if(this.sortBarTop == 0) {
 						this.sortBarTop = document.querySelector('#J_sortBar').offsetTop;
@@ -326,13 +346,15 @@
 					} else {
 						this.Affix = false
 					}
-				}, false)
+				}, 17, this)
+				//sortBar 滚动位置固定
+				document.addEventListener('scroll', scrollFn, false)
 			},
 		},
 		//监控属性
 		watch: {
 
-		}
+		},
 
 	}
 </script>
@@ -343,6 +365,16 @@
 	/*@import './style/list.css';*/
 	/*@import './style/style.css';*/
 	/*主题资源位*/
+	
+	.fade-enter-active,
+	.fade-leave-active {
+		transition: opacity .5s
+	}
+	
+	.fade-enter,
+	.fade-leave-to {
+		opacity: 0
+	}
 	
 	.topic-wrapper {
 		padding: .15rem .1rem;

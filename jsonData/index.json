@@ -29,108 +29,59 @@
     ],
     "banner_list": [
         {
-            "action": {
-                "type": "click",
-                "url": "http://www.baidu.com"
-            },
-            "img_url": "http://oss1.lanlanlife.com/c0bb79e77b28d319a493b2dad82b3665_300x750.jpg"
+            "layout_type": "lunbo",
+            "module_list": [
+                {
+                    "image_url": "https://y.taofen8.com/6e6b6dd307274f9c88dd9fba59762701.jpg",
+                    "title": "鞋靴",
+                    "action": {
+                        "link_name": "鞋靴",
+                        "link_type": "wap",
+                        "link_value": "http://quan.tfbcoupon.com/h5/collection/detail?id=771&channel=4&_path=9001.BAH.771&banner=771&pid=mm"
+                    }
+                }
+            ]
         },
         {
-            "action": {
-                "type": "click",
-                "url": "http://www.baidu.com"
-            },
-            "img_url": "http://oss1.lanlanlife.com/c0bb79e77b28d319a493b2dad82b3665_300x750.jpg"
-        },
-        {
-            "action": {
-                "type": "click",
-                "url": "http://www.baidu.com"
-            },
-            "img_url": "http://oss1.lanlanlife.com/c0bb79e77b28d319a493b2dad82b3665_300x750.jpg"
-        },
-        {
-            "action": {
-                "type": "click",
-                "url": "http://www.baidu.com"
-            },
-            "img_url": "http://oss1.lanlanlife.com/c0bb79e77b28d319a493b2dad82b3665_300x750.jpg"
-        }
-    ],
-    "second_category_list": [
-        {
-            "category_id": "21",
-            "img_url": "//oss1.lanlanlife.com/d33623ac39582767649d5aeae42d9ab7_84x84.jpg",
-            "name": "卫衣绒衫"
-        },
-        {
-            "category_id": "22",
-            "img_url": "//oss1.lanlanlife.com/d33623ac39582767649d5aeae42d9ab7_84x84.jpg",
-            "name": "卫衣绒衫"
-        },
-        {
-            "category_id": "23",
-            "img_url": "//oss1.lanlanlife.com/d33623ac39582767649d5aeae42d9ab7_84x84.jpg",
-            "name": "卫衣绒衫"
-        },
-        {
-            "category_id": "24",
-            "img_url": "//oss1.lanlanlife.com/d33623ac39582767649d5aeae42d9ab7_84x84.jpg",
-            "name": "卫衣绒衫"
-        },
-        {
-            "category_id": "25",
-            "img_url": "//oss1.lanlanlife.com/d33623ac39582767649d5aeae42d9ab7_84x84.jpg",
-            "name": "卫衣绒衫"
-        },
-        {
-            "category_id": "26",
-            "img_url": "//oss1.lanlanlife.com/d33623ac39582767649d5aeae42d9ab7_84x84.jpg",
-            "name": "卫衣绒衫"
-        },
-        {
-            "category_id": "27",
-            "img_url": "//oss1.lanlanlife.com/d33623ac39582767649d5aeae42d9ab7_84x84.jpg",
-            "name": "卫衣绒衫"
-        },
-        {
-            "category_id": "28",
-            "img_url": "//oss1.lanlanlife.com/d33623ac39582767649d5aeae42d9ab7_84x84.jpg",
-            "name": "卫衣绒衫"
-        }
-    ],
-    "topic_list": [
-        {
-            "name": "left",
-            "img_url": "//oss2.lanlanlife.com/8bddec2d5d7259cbc820f25675c38df8_280x224.png",
-            "action": {
-                "type": "click",
-                "url": "http://www.baidu.com"
-            }
-        },
-        {
-            "name": "top",
-            "img_url": "//oss1.lanlanlife.com/9320dba232f99ed85ea3e92da3d47251_130x466.png",
-            "action": {
-                "type": "click",
-                "url": "http://www.baidu.com"
-            }
-        },
-        {
-            "name": "down-left",
-            "img_url": "//oss1.lanlanlife.com/a8b7c89d5a187492526d7284874b6aef_132x224.png",
-            "action": {
-                "type": "click",
-                "url": "http://www.baidu.com"
-            }
-        },
-        {
-            "name": "down-right",
-            "img_url": "//oss3.lanlanlife.com/9179e713b595b607e181c3472d3b4d80_132x222.png",
-            "action": {
-                "type": "click",
-                "url": "http://www.baidu.com"
-            }
+            "layout_type": "3c1h",
+            "module_list": [
+                {
+                    "image_url": "https://y.taofen8.com/b3a5c4ddf7c542d9b9abae45710f4587.jpg",
+                    "title": "聚特卖",
+                    "action": {
+                        "link_name": "聚特卖",
+                        "link_type": "wap",
+                        "link_value": "http://quan.tfbcoupon.com/h5/collection/detail?id=771&channel=4&_path=9001.BAH.771&banner=771&pid=mm"
+                    }
+                },
+                {
+                    "image_url": "https://y.taofen8.com/11489897dc3b4fe08266e2ada289a4cd.jpg",
+                    "title": "销量榜单",
+                    "action": {
+                        "link_name": "销量榜单",
+                        "link_type": "wap",
+                        "link_value": "http://quan.tfbcoupon.com/h5/collection/detail?id=771&channel=4&_path=9001.BAH.771&banner=771&pid=mm"
+                    }
+                },
+                {
+                    "image_url": "https://y.taofen8.com/c758b8fb6a3a45e2b2a87e9d2c225640.jpg",
+                    "title": "大牌秒杀",
+                    "action": {
+                        "link_name": "大牌秒杀",
+                        "link_type": "wap",
+                        "link_value": "http://quan.tfbcoupon.com/h5/collection/detail?id=771&channel=4&_path=9001.BAH.771&banner=771&pid=mm"
+                    }
+                },
+                {
+                    "image_url": "https://y.taofen8.com/7fbd06881af94db59cbfa4e200aa09cb.jpg",
+                    "title": "9.9包邮",
+                    "action": {
+                        "link_name": "9.9包邮",
+                        "link_type": "wap",
+                        "link_value": "http://quan.tfbcoupon.com/h5/collection/detail?id=771&channel=4&_path=9001.BAH.771&banner=771&pid=mm"
+                    }
+                }
+            ]
         }
     ]
 }

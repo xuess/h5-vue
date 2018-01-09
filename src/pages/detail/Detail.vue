@@ -39,7 +39,10 @@
 					</div>-->
 					<div class="divide"></div>
 					<div class="multi-image">
-						<p><button>查看图文详情</button></p>
+						<p v-if="!isShowDetailImages"><button @click="showDetailImg">查看图文详情</button></p>
+						<template v-if="isShowDetailImages"> 
+							<img :src="item" v-for="item in goodsData.detail_images"/>
+						</template>
 					</div>
 				</section>
 			</section>
@@ -55,7 +58,7 @@
 						<a href="javascript:;" @click="openAlert('code')">复制淘口令</a>
 					</li>
 					<li class="btn browser">
-						<a href="javascript:;" data-collection="_path=9001.CA.1321.i.560532820633.e.0">领券购买</a>
+						<a :href="goodsData.buy_url" data-collection="_path=9001.CA.1321.i.560532820633.e.0">领券购买</a>
 					</li>
 				</ul>
 			</footer>
@@ -85,6 +88,7 @@
 			return {
 				swiperOption: {
 					// 所有配置均为可选（同Swiper配置） 
+					loop : true,
 					notNextTick: true,
 					autoplay: 3000,
 					grabCursor: true,
@@ -101,6 +105,8 @@
 				alertTpye: 'code',
 				//分享图片url
 				prdCodeImgUrl:'',
+				//显示商品详情页
+				isShowDetailImages:false,
 				//商品数据
 				goodsData: {
 					"goods_id": "",
@@ -116,7 +122,8 @@
 			        "coupon_num": "",
 			        "coupon_date": "",
 			        "recommend_str": "",
-			        "buy_url": ""
+			        "buy_url": "",
+			        "detail_images": []
 				}
 			}
 		},
@@ -128,11 +135,10 @@
 			document.body.scrollTop = 0
 			document.documentElement.scrollTop = 0
 		},
-		
+		//创建完成
 		mounted() {
 			//一键复制
 			this.copyBuyCode()
-			
 		},
 		//计算属性
 		computed: {
@@ -175,6 +181,10 @@
 			//领券
 			goGetCoupon(){
 				
+			},
+			//显示详情图片
+			showDetailImg(){
+				this.isShowDetailImages = true
 			},
 			//获取 详情页数据
 			getDetailData() {
@@ -969,5 +979,9 @@
 		border: 1px solid #FE3C24;
 		border-radius: 4px;
 		background: #FFF;
+	}
+	.swiper-pagination-bullet-active {
+	    opacity: 1;
+	    background: #FFFFFF!important;
 	}
 </style>

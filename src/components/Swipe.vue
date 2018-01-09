@@ -2,9 +2,9 @@
 	<div>
 		<swiper :options="swiperOption" class="swiper-box" ref="mySwiper">
 			<swiper-slide class="swiper-item" v-for="(banner, index) in bannerList" :key="index">
-				<img :src="banner.img_url">
+				<img :src="banner.image_url">
 			</swiper-slide>
-			<div class="swiper-pagination" slot="pagination"></div>
+			<div class="swiper-pagination" slot="pagination" v-if="bannerList.length > 1"></div>
 		</swiper>
 	</div>
 </template>
@@ -29,6 +29,7 @@
 //				bannerList : ['//oss.lanlanlife.com/30d3381b160c6f9312737a132f42a66e_300x750.jpg','//oss.lanlanlife.com/45625002bdfd8baa24c2b4aef0829eb6_300x750.jpg','//oss1.lanlanlife.com/c0bb79e77b28d319a493b2dad82b3665_300x750.jpg'],
 				swiperOption: {
 					// 所有配置均为可选（同Swiper配置） 
+//					loop : true,
 					notNextTick: true,
 					autoplay: 3000,
 					grabCursor: true,
@@ -48,8 +49,17 @@
 			}
 		},
 		mounted() {
+			//如果小于1 就销毁 swiper
+//			if(this.swiper.slides.length <= 1){
+//				console.log('数量小啊 ');
+//				this.swiper.destroy();
+//			}
 //			console.log("每次切换都会触发我");
 //			this.swiper.slideTo(0, 0, true);
+		},
+		beforeDestroy(){
+//			alert('beforeDestroy')
+//			this.swiper.destroy()
 		}
 	};
 </script>
