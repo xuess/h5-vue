@@ -16,10 +16,10 @@
 </template>
 
 <script>
-	import { _debounceTail } from '@/assets/js/util'
+	import { _debounceTail } from '@/util/tool'
 
 	export default {
-		props:{
+		props: {
 			isIndex: Boolean
 		},
 		data() {
@@ -33,17 +33,31 @@
 			this.showGotoTop();
 		},
 		methods: {
+			/**
+			 * 从当前值滚动到顶部
+			 * scrollDuration 速度 越大越慢
+			 */
+			scrollToTop(scrollDuration) {
+				let scrollStep = -window.scrollY / (scrollDuration / 15),
+					scrollInterval = setInterval(function() {
+						if(window.scrollY != 0) {
+							window.scrollBy(0, scrollStep);
+						} else clearInterval(scrollInterval);
+					}, 17)
+			},
 			//向上
 			gotoTop() {
+				
+				this.scrollToTop(200)
 				//scrolltop 到最上面
-				document.body.scrollTop = 0
-				document.documentElement.scrollTop = 0
+//				document.body.scrollTop = 0
+//				document.documentElement.scrollTop = 0
 			},
 			/**
 			 * 排序条 滚动时 位置固定
 			 */
 			showGotoTop() {
-
+				//节流
 				let scrollFn = _debounceTail(() => {
 					let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
 					//大于两倍高度 显示 向上按钮

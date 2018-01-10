@@ -49,7 +49,7 @@
 			<footer class="footer">
 				<ul>
 					<li>
-						<a href="/saber/index?pid=mm_112040233_40946019_167804789" class="home-link"><img src="//oss3.lanlanlife.com/ddfdbaa6b0ec0c4ba98622940b7b5ffb_40x38.png" alt=""> <span>首页</span></a>
+						<router-link :to="{ path: 'index'}" class="home-link"><img src="//oss3.lanlanlife.com/ddfdbaa6b0ec0c4ba98622940b7b5ffb_40x38.png" alt=""> <span>首页</span></router-link>
 					</li>
 					<li>
 						<a href="javascript:;" class="share-btn" @click="openShareImg"><img src="//oss3.lanlanlife.com/9647feda49c08796a9782f85a1152f32_36x36.png" alt=""> <span>分享图片</span></a>

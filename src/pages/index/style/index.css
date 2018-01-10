@@ -71,7 +71,8 @@
     overflow: hidden;
     background: #fff;
     position: fixed;
-    top: 44px;
+    top: 0;
+/*    top: 44px;*/
     z-index: 100;
 }
 .tabs-wrapper >div{
@@ -153,7 +154,8 @@
     background: rgba(0, 0, 0, .6);
     z-index: 999;
     position: fixed;
-    top: 84px;
+    top: 40px;
+/*    top: 84px;*/
 }
 .categorys .wrapper{
     background: #fff;

@@ -1,7 +1,7 @@
 <template>
 	<div id="J_index">
 		<!--搜索框-->
-		<div style="width: 100%; height: 44px;">
+		<!--<div style="width: 100%; height: 44px;">
 			<div class="search">
 				<a href="#" class="search-href">
 					<form action="javascript:return true;" class="form">
@@ -13,7 +13,7 @@
 					</form>
 				</a>
 			</div>
-		</div>
+		</div>-->
 		<!--tabs-->
 		<div style="width: 100%; height: 40px;">
 			<div class="tabs-wrapper">
@@ -85,6 +85,7 @@
 
 		<!--商品列表-->
 		<div class="items" id="J_goodsList">
+			<!--排序条-->
 			<div style="height: 40px;" id="J_sortBar">
 				<div :class="{Affix : Affix}">
 					<div class="sort-bar">
@@ -125,7 +126,7 @@
 				<p class="last-page-p">没有更多了~</p>
 			</div>
 
-			<!--向上-->
+			<!--向上标-->
 			<scroll-top></scroll-top>
 		</div>
 
@@ -135,9 +136,9 @@
 <script>
 	import { mapActions } from 'vuex'
 	import api from '@/fetch/api'
-	//	import * as _ from '@/util/tool'
+//	import * as _ from '@/util/tool'
 	import Swipe from '@/components/Swipe'
-	import { _debounceTail } from '@/assets/js/util'
+	import { _debounceTail } from '@/util/tool'
 
 	import ScrollTop from '@/components/ScrollTop'
 
@@ -181,8 +182,7 @@
 			//商品排序条位置固定
 			this.sortBarScroll();
 			//滚动到顶部
-			document.body.scrollTop = 0
-			document.documentElement.scrollTop = 0
+			window.scrollTo(0,0)
 		},
 		//计算属性
 		computed: {
@@ -225,8 +225,7 @@
 			this.getGoodsListData()
 
 			//滚动到顶部
-			document.body.scrollTop = 0
-			document.documentElement.scrollTop = 0
+			window.scrollTo(0,0)
 			next() //修改路径
 		},
 		methods: {
@@ -281,9 +280,8 @@
 				//切换排序 重新查询
 				this.getGoodsListData();
 
-				//scrolltop 到最上面
-				document.body.scrollTop = 0
-				document.documentElement.scrollTop = 0
+				//滚动到顶部
+				window.scrollTo(0,0)
 			},
 			loadMore: function() {
 				if(!this.isLastPage) {
@@ -533,7 +531,8 @@
 		z-index: 100;
 		position: fixed;
 		width: 100%;
-		top: 84px;
+		top: 40px;
+		/*top: 84px;*/
 	}
 	
 	.sort-bar {
