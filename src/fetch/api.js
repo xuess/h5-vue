@@ -5,9 +5,9 @@ import * as _ from '../util/tool'
 
 // axios 配置
 axios.defaults.timeout = 5000;
-//axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
-axios.defaults.baseURL = 'http://mktm.biqiang8.com/';
-//axios.defaults.baseURL = 'http://172.16.0.34:8099/';
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
+axios.defaults.baseURL = 'http://vueh5.xueshanshan.top/api/';
+//axios.defaults.baseURL = 'http://127.0.0.1:80/';
 
 //POST传参序列化
 //axios.interceptors.request.use((config) => {
@@ -19,8 +19,8 @@ axios.defaults.baseURL = 'http://mktm.biqiang8.com/';
 //   _.toast("错误的传参", 'fail');
 //  return Promise.reject(error);
 //});
-
-//返回状态判断
+//
+////返回状态判断
 //axios.interceptors.response.use((res) =>{
 //  if(!res.data.success){
 //         _.toast(res.data.msg);
@@ -39,7 +39,6 @@ export function fetch(url, params) {
 //	  url: url,
 //	  data: params
 //	})
-		console.log('api ~~~',params)
         axios.get(url, params)
             .then(response => {
                 resolve(response.data);
@@ -57,28 +56,26 @@ export default {
      * 首屏数据
      */
     getIndexData(params) {
-        return fetch('/home/index', params)
-//      return fetch('/h5-vue/jsonData/index.json', params)
+        return fetch('/index.json', params)
     },
     /**
      * 商品流数据
      */
     getGoodsList(params) {
     		console.log('商品流数据 参数----->',params)
-        return fetch('/home/goods', params)
-//      return fetch('/h5-vue/jsonData/goodsList.json', params)
+        return fetch('/goodsList.json', params)
     },
     /**
      * 获取商品详数据
      */
     getDetail(params) {
-        return fetch('/h5-vue/jsonData/detail.json', params)
+        return fetch('/detail.json', params)
     },
     /**
      * 获取商品图片，用于分享
      */
     getPrdCodeImgUrl(params) {
-        return fetch('/h5-vue/jsonData/prd-img.json', params)
+        return fetch('/prd-img.json', params)
     },
     
     
