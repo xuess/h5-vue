@@ -1,87 +1,681 @@
 {
-    "success": true,
-    "error_code": 0,
-    "category_list": [
-        {
-            "name": "全部",
-            "id": "0"
-        },
-        {
-            "name": "百货",
-            "id": "1"
-        },
-        {
-            "name": "美食",
-            "id": "2"
-        },
-        {
-            "name": "美妆",
-            "id": "3"
-        },
-        {
-            "name": "鞋包",
-            "id": "4"
-        },
-        {
-            "name": "其他",
-            "id": "5"
-        }
-    ],
-    "banner_list": [
-        {
-            "layout_type": "lunbo",
-            "module_list": [
-                {
-                    "image_url": "https://y.taofen8.com/6e6b6dd307274f9c88dd9fba59762701.jpg",
-                    "title": "鞋靴",
-                    "action": {
-                        "link_name": "鞋靴",
-                        "link_type": "wap",
-                        "link_value": "http://quan.tfbcoupon.com/h5/collection/detail?id=771&channel=4&_path=9001.BAH.771&banner=771&pid=mm"
+    "msg": "处理成功",
+    "code": 0,
+    "data": {
+        "category_list": [
+            {
+                "id": "0",
+                "name": "全部",
+                "image_url": null,
+                "category_view_list": null
+            },
+            {
+                "id": "1321",
+                "name": "女装",
+                "image_url": null,
+                "category_view_list": [
+                    {
+                        "id": "1338",
+                        "name": "裙装套装",
+                        "image_url": "http://oss1.lanlanlife.com/b87c46ed5a0d8f5f15b0b6a8fb7a2aff_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1339",
+                        "name": "裤装",
+                        "image_url": "http://oss.lanlanlife.com/0513c388f3d5731d497685fe5a85b678_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1337",
+                        "name": "外套",
+                        "image_url": "http://oss.lanlanlife.com/629ea12834349bf02a1629532379e154_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1334",
+                        "name": "毛衣针织",
+                        "image_url": "http://oss1.lanlanlife.com/54dd0a50e733bbda222af89d4d3a9930_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1439",
+                        "name": "冬季清仓",
+                        "image_url": "http://oss.lanlanlife.com/b6fc3555fe22694249035624732e2a7f_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1336",
+                        "name": "衬衫",
+                        "image_url": "http://oss2.lanlanlife.com/154cc020ce7efaa747d84868188c8ebf_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1335",
+                        "name": "T恤卫衣",
+                        "image_url": "http://oss2.lanlanlife.com/31d8d2cfbee92593078bd3b8d6eb85a3_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1333",
+                        "name": "连衣裙",
+                        "image_url": "http://oss3.lanlanlife.com/a60977f422ab0e233b0b392ba2515d55_126x126.png",
+                        "category_view_list": null
                     }
-                }
-            ]
-        },
-        {
-            "layout_type": "3c1h",
-            "module_list": [
-                {
-                    "image_url": "https://y.taofen8.com/b3a5c4ddf7c542d9b9abae45710f4587.jpg",
-                    "title": "聚特卖",
-                    "action": {
-                        "link_name": "聚特卖",
-                        "link_type": "wap",
-                        "link_value": "http://quan.tfbcoupon.com/h5/collection/detail?id=771&channel=4&_path=9001.BAH.771&banner=771&pid=mm"
+                ]
+            },
+            {
+                "id": "1323",
+                "name": "百货",
+                "image_url": null,
+                "category_view_list": [
+                    {
+                        "id": "1356",
+                        "name": "个人洗护",
+                        "image_url": "http://oss2.lanlanlife.com/fe075c68ba13b319e4abc275e076e959_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1355",
+                        "name": "汽车用品",
+                        "image_url": "http://oss2.lanlanlife.com/0f75da7969c1a1ffaee9f1677b16a776_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1354",
+                        "name": "家用电器",
+                        "image_url": "http://oss2.lanlanlife.com/7caee7016e0c139696c507f86fb05155_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1353",
+                        "name": "家居家纺",
+                        "image_url": "http://oss.lanlanlife.com/ac9508a5dd89667304e5fbe10d038b70_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1352",
+                        "name": "收纳必备",
+                        "image_url": "http://oss3.lanlanlife.com/50ff7dfe28a21866bd34587f79949074_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1351",
+                        "name": "厨房烹饪",
+                        "image_url": "http://oss.lanlanlife.com/945039801962202b5f268531dad07634_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1350",
+                        "name": "餐饮用具",
+                        "image_url": "http://oss2.lanlanlife.com/fb26f9fbd4cc2912e257079b1bd432d6_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1349",
+                        "name": "居家日用",
+                        "image_url": "http://oss3.lanlanlife.com/b7cb9c52f5acaa2d4100a80054cfebde_126x126.png",
+                        "category_view_list": null
                     }
-                },
-                {
-                    "image_url": "https://y.taofen8.com/11489897dc3b4fe08266e2ada289a4cd.jpg",
-                    "title": "销量榜单",
-                    "action": {
-                        "link_name": "销量榜单",
-                        "link_type": "wap",
-                        "link_value": "http://quan.tfbcoupon.com/h5/collection/detail?id=771&channel=4&_path=9001.BAH.771&banner=771&pid=mm"
+                ]
+            },
+            {
+                "id": "1322",
+                "name": "美食",
+                "image_url": null,
+                "category_view_list": [
+                    {
+                        "id": "1348",
+                        "name": "粮油干货",
+                        "image_url": "http://oss2.lanlanlife.com/86819dbb0d2a4827b1549def92aade1c_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1347",
+                        "name": "休闲零食",
+                        "image_url": "http://oss3.lanlanlife.com/9bf2a9a6a54d2c0cb5489a31f23014c8_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1346",
+                        "name": "茶酒冲饮",
+                        "image_url": "http://oss2.lanlanlife.com/959583a32300967c64bb791fe57296dd_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1345",
+                        "name": "速食卤味",
+                        "image_url": "http://oss1.lanlanlife.com/bc056ac5a245635dac493bf8df24e3ae_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1344",
+                        "name": "养身滋补",
+                        "image_url": "http://oss1.lanlanlife.com/9ddb4666bd48137daa94330910a3d758_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1343",
+                        "name": "坚果蜜饯",
+                        "image_url": "http://oss3.lanlanlife.com/b5980905b99c8dc9603e8cbbb5fc5e47_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1342",
+                        "name": "饼干糕点",
+                        "image_url": "http://oss1.lanlanlife.com/ad3499ffbe749e84ee28356030c1e167_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1341",
+                        "name": "生鲜果蔬",
+                        "image_url": "http://oss2.lanlanlife.com/5a0fc32c4d220f2b591196f3885cc8db_126x126.png",
+                        "category_view_list": null
                     }
-                },
-                {
-                    "image_url": "https://y.taofen8.com/c758b8fb6a3a45e2b2a87e9d2c225640.jpg",
-                    "title": "大牌秒杀",
-                    "action": {
-                        "link_name": "大牌秒杀",
-                        "link_type": "wap",
-                        "link_value": "http://quan.tfbcoupon.com/h5/collection/detail?id=771&channel=4&_path=9001.BAH.771&banner=771&pid=mm"
+                ]
+            },
+            {
+                "id": "1324",
+                "name": "美妆",
+                "image_url": null,
+                "category_view_list": [
+                    {
+                        "id": "1363",
+                        "name": "美容美甲",
+                        "image_url": "http://oss1.lanlanlife.com/975053dfab93aa8345b84a71a3e154d6_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1361",
+                        "name": "水乳霜膏",
+                        "image_url": "http://oss1.lanlanlife.com/689d00a653ca562f66090f9c8d82f490_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1360",
+                        "name": "护肤套装",
+                        "image_url": "http://oss1.lanlanlife.com/4739fb89df57b417ee41149595bcab5c_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1359",
+                        "name": "卸妆洁面",
+                        "image_url": "http://oss1.lanlanlife.com/f4ee5462afc7eb69241c9f88513d9225_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1357",
+                        "name": "香水彩妆",
+                        "image_url": "http://oss2.lanlanlife.com/9f88771ae33e0ac8eb46047701b1047d_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1358",
+                        "name": "面膜精华",
+                        "image_url": "http://oss2.lanlanlife.com/93d58b105ba8c9a1128d5846ee0d2ec1_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1364",
+                        "name": "防晒隔离",
+                        "image_url": "http://oss2.lanlanlife.com/22ef7dd24a4e1d4f9248e988349536b6_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1362",
+                        "name": "口红唇膏",
+                        "image_url": "http://oss.lanlanlife.com/7401f07249d24132665bc754f2baf2ff_126x126.png",
+                        "category_view_list": null
                     }
-                },
-                {
-                    "image_url": "https://y.taofen8.com/7fbd06881af94db59cbfa4e200aa09cb.jpg",
-                    "title": "9.9包邮",
-                    "action": {
-                        "link_name": "9.9包邮",
-                        "link_type": "wap",
-                        "link_value": "http://quan.tfbcoupon.com/h5/collection/detail?id=771&channel=4&_path=9001.BAH.771&banner=771&pid=mm"
+                ]
+            },
+            {
+                "id": "1325",
+                "name": "鞋包",
+                "image_url": null,
+                "category_view_list": [
+                    {
+                        "id": "1372",
+                        "name": "行李箱",
+                        "image_url": "http://oss1.lanlanlife.com/29a265a2f31ea25b2176b5be983aba23_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1371",
+                        "name": "双肩包",
+                        "image_url": "http://oss2.lanlanlife.com/003a3296f276667e68bdf7ba4009ee14_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1370",
+                        "name": "单肩包",
+                        "image_url": "http://oss.lanlanlife.com/6c4e529a224ad8ac235ec4fe06ce41a4_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1369",
+                        "name": "男鞋",
+                        "image_url": "http://oss3.lanlanlife.com/a10c9a38a78b1636ca79105a5c0da0e7_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1367",
+                        "name": "凉鞋",
+                        "image_url": "http://oss1.lanlanlife.com/e2f805b19ab52c76809de97beaa04727_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1365",
+                        "name": "运动休闲",
+                        "image_url": "http://oss3.lanlanlife.com/405de96bb0d41ee44661286f59d861c5_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1368",
+                        "name": "居家拖鞋",
+                        "image_url": "http://oss3.lanlanlife.com/c63f15ebd485c3738794997f51d825a5_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1366",
+                        "name": "单鞋",
+                        "image_url": "http://oss1.lanlanlife.com/6906ae18fd2bc26aed1c08dedfc57f0b_126x126.png",
+                        "category_view_list": null
                     }
-                }
-            ]
-        }
-    ]
+                ]
+            },
+            {
+                "id": "1326",
+                "name": "内衣",
+                "image_url": null,
+                "category_view_list": [
+                    {
+                        "id": "1379",
+                        "name": "塑身美体",
+                        "image_url": "http://oss.lanlanlife.com/104ce9b8ab991a178a56b767bcf0f4d6_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1434",
+                        "name": "袜子",
+                        "image_url": "http://oss.lanlanlife.com/e9fa32a1406df1998733e87408f2a2a2_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1380",
+                        "name": "吊带背心",
+                        "image_url": "http://oss1.lanlanlife.com/4109e03f9ba2a341417397606a356c9a_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1375",
+                        "name": "家居睡衣",
+                        "image_url": "http://oss3.lanlanlife.com/67d02e4f7d2ccef308cb6f744b6f5cb1_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1374",
+                        "name": "内裤",
+                        "image_url": "http://oss2.lanlanlife.com/f0495181e86c6444b171f29248fd75fa_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1373",
+                        "name": "文胸",
+                        "image_url": "http://oss2.lanlanlife.com/e81fda4ee7f33c8723dc2c87204bc92a_126x126.png",
+                        "category_view_list": null
+                    }
+                ]
+            },
+            {
+                "id": "1327",
+                "name": "男装",
+                "image_url": null,
+                "category_view_list": [
+                    {
+                        "id": "1388",
+                        "name": "背心",
+                        "image_url": "http://oss2.lanlanlife.com/f507fc2cb8d9c45e50b88f5cfbca80ae_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1386",
+                        "name": "休闲裤",
+                        "image_url": "http://oss1.lanlanlife.com/c09860765cd70daa716db080df1fa445_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1385",
+                        "name": "夹克外套",
+                        "image_url": "http://oss3.lanlanlife.com/5bf684ab3e3552789dfe7b9bf4eb0e8c_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1387",
+                        "name": "牛仔裤",
+                        "image_url": "http://oss2.lanlanlife.com/5b166c18f2a0c803fed82443477169da_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1382",
+                        "name": "针织衫",
+                        "image_url": "http://oss2.lanlanlife.com/d3e5bd0cbeaf06157bab1b86febfa088_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1383",
+                        "name": "衬衫",
+                        "image_url": "http://oss2.lanlanlife.com/e94ec67876bcf0288e6490db1733d68b_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1381",
+                        "name": "卫衣",
+                        "image_url": "http://oss2.lanlanlife.com/f3c73f9296c241ed6c58712f0477a54a_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1384",
+                        "name": "T恤",
+                        "image_url": "http://oss.lanlanlife.com/a366fd314ce954e8216c511ae3a1bb4c_126x126.png",
+                        "category_view_list": null
+                    }
+                ]
+            },
+            {
+                "id": "1328",
+                "name": "母婴",
+                "image_url": null,
+                "category_view_list": [
+                    {
+                        "id": "1396",
+                        "name": "婴幼食品",
+                        "image_url": "http://oss3.lanlanlife.com/d5d3a2e5e129463731b6f86ac42e4075_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1395",
+                        "name": "婴童洗护",
+                        "image_url": "http://oss1.lanlanlife.com/a6d63c49bb64237e5c545b617911f787_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1394",
+                        "name": "孕产专区",
+                        "image_url": "http://oss3.lanlanlife.com/579d52a40603759dc615f1b02f7a9e58_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1393",
+                        "name": "婴童用品",
+                        "image_url": "http://oss1.lanlanlife.com/135c4de9236119b390169042a421258a_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1392",
+                        "name": "儿童玩具",
+                        "image_url": "http://oss2.lanlanlife.com/52fe41a68295f11a29bb70ead57c0a28_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1391",
+                        "name": "婴童早教",
+                        "image_url": "http://oss1.lanlanlife.com/4ff904e585448420fe429457d58a1434_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1390",
+                        "name": "童鞋",
+                        "image_url": "http://oss1.lanlanlife.com/d52bb7412f930a3c99cd450a25414ecb_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1389",
+                        "name": "婴童服饰",
+                        "image_url": "http://oss.lanlanlife.com/63ee5c4d1ef20b9429771eb0f665d171_126x126.png",
+                        "category_view_list": null
+                    }
+                ]
+            },
+            {
+                "id": "1329",
+                "name": "手机周边",
+                "image_url": null,
+                "category_view_list": [
+                    {
+                        "id": "1404",
+                        "name": "办公用品",
+                        "image_url": "http://oss3.lanlanlife.com/f5eecd434c673072ab25025956a715cc_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1403",
+                        "name": "手机",
+                        "image_url": "http://oss.lanlanlife.com/7d21e26a0c7445711cd64ee636bfb4d6_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1402",
+                        "name": "数码配件",
+                        "image_url": "http://oss.lanlanlife.com/2d727dd19e44fedbcf4a2e6ed81e00e7_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1401",
+                        "name": "移动电源",
+                        "image_url": "http://oss2.lanlanlife.com/0b3e13047d78bd0a773661a6c4ec9aab_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1400",
+                        "name": "耳机音响",
+                        "image_url": "http://oss1.lanlanlife.com/30d4a028da9991c8f06ed56061c7a37d_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1399",
+                        "name": "数据线",
+                        "image_url": "http://oss3.lanlanlife.com/952b51487d2493e6409f4ad9f95c105c_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1398",
+                        "name": "手机膜",
+                        "image_url": "http://oss3.lanlanlife.com/a029bf2c606b78d11640c736e44b1d3a_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1397",
+                        "name": "手机壳",
+                        "image_url": "http://oss1.lanlanlife.com/57f40d4d1baf8a8115548bebb2964a0c_126x126.png",
+                        "category_view_list": null
+                    }
+                ]
+            },
+            {
+                "id": "1330",
+                "name": "配饰",
+                "image_url": null,
+                "category_view_list": [
+                    {
+                        "id": "1412",
+                        "name": "美瞳",
+                        "image_url": "http://oss3.lanlanlife.com/98e750b4a88aa1cc2c8c7762fb827b8e_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1409",
+                        "name": "腰带领带",
+                        "image_url": "http://oss3.lanlanlife.com/3d92c9e095a2d7cc6e1519929d5d7ebe_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1411",
+                        "name": "发饰",
+                        "image_url": "http://oss1.lanlanlife.com/0bcf2645da0c603392bb05bc1e0b0127_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1438",
+                        "name": "丝巾帽子",
+                        "image_url": "http://oss.lanlanlife.com/60e8185becb8f438b481df93ba6931a8_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1437",
+                        "name": "防晒用品",
+                        "image_url": "http://oss2.lanlanlife.com/30350c9aea82ba1df3ce8f08b565cc22_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1436",
+                        "name": "手表手饰",
+                        "image_url": "http://oss.lanlanlife.com/8e67c08d10e4165b2f5065d0f513d4a3_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1406",
+                        "name": "墨镜眼镜",
+                        "image_url": "http://oss1.lanlanlife.com/5f16cd118b467625e747ecfa39ddc6ae_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1435",
+                        "name": "耳饰项链",
+                        "image_url": "http://oss3.lanlanlife.com/ef6168fde7c4bb028364a49c55b131a4_126x126.png",
+                        "category_view_list": null
+                    }
+                ]
+            },
+            {
+                "id": "1331",
+                "name": "其他",
+                "image_url": null,
+                "category_view_list": [
+                    {
+                        "id": "1420",
+                        "name": "节庆礼品",
+                        "image_url": "http://oss3.lanlanlife.com/3245b9d72190d032dd3aa49bf1e3eeff_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1419",
+                        "name": "烟具",
+                        "image_url": "http://oss1.lanlanlife.com/e7b72a0cfe15afe97c65067b870dabf3_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1418",
+                        "name": "园艺",
+                        "image_url": "http://oss.lanlanlife.com/a47c9607298d86c3ba58133ac535e9c5_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1417",
+                        "name": "宠物用品",
+                        "image_url": "http://oss.lanlanlife.com/6d479f9bc8eb7d47d09a1fc5dab6e5e8_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1414",
+                        "name": "考试教材",
+                        "image_url": "http://oss.lanlanlife.com/dc70aad135cc15e3199b5a76b48ebcb9_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1415",
+                        "name": "图书",
+                        "image_url": "http://oss.lanlanlife.com/151a621b135495c7a4dba08637b1b8d1_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1416",
+                        "name": "户外运动",
+                        "image_url": "http://oss.lanlanlife.com/99ce4f6fc0308781a46e3c209f5722af_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1413",
+                        "name": "医疗保健",
+                        "image_url": "http://oss3.lanlanlife.com/0fdc2dba7264ca3ed38e9d66994aacb1_126x126.png",
+                        "category_view_list": null
+                    }
+                ]
+            },
+            {
+                "id": "1332",
+                "name": "成人用品",
+                "image_url": null,
+                "category_view_list": [
+                    {
+                        "id": "1424",
+                        "name": "女用",
+                        "image_url": "http://oss1.lanlanlife.com/e0754f4ec8811174430ad8a2c1496edb_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1423",
+                        "name": "男用",
+                        "image_url": "http://oss3.lanlanlife.com/67cf47b397418b6df8c0f82ce1c4aa0c_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1422",
+                        "name": "油剂",
+                        "image_url": "http://oss.lanlanlife.com/77fcb72f733c848c42d877b5b4c05296_126x126.png",
+                        "category_view_list": null
+                    },
+                    {
+                        "id": "1421",
+                        "name": "安全套",
+                        "image_url": "http://oss2.lanlanlife.com/26e982b699b34084824a4baba2be9dc2_126x126.png",
+                        "category_view_list": null
+                    }
+                ]
+            }
+        ],
+        "banner_list": [
+            {
+                "layout_type": "3c1h",
+                "module_list": [
+                    {
+                        "title": "聚特卖",
+                        "image_url": "https://y.taofen8.com/b3a5c4ddf7c542d9b9abae45710f4587.jpg",
+                        "action": {
+                            "link_name": "聚特卖",
+                            "link_type": "topic",
+                            "link_value": "1"
+                        }
+                    },
+                    {
+                        "title": "销量榜单",
+                        "image_url": "https://y.taofen8.com/11489897dc3b4fe08266e2ada289a4cd.jpg",
+                        "action": {
+                            "link_name": "销量榜单",
+                            "link_type": "topic",
+                            "link_value": "2"
+                        }
+                    },
+                    {
+                        "title": "大牌秒杀",
+                        "image_url": "https://y.taofen8.com/c758b8fb6a3a45e2b2a87e9d2c225640.jpg",
+                        "action": {
+                            "link_name": "大牌秒杀",
+                            "link_type": "topic",
+                            "link_value": "3"
+                        }
+                    },
+                    {
+                        "title": "9.9包邮",
+                        "image_url": "https://y.taofen8.com/7fbd06881af94db59cbfa4e200aa09cb.jpg",
+                        "action": {
+                            "link_name": "9.9包邮",
+                            "link_type": "topic",
+                            "link_value": "4"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
 }
