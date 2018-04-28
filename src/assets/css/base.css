@@ -159,7 +159,7 @@ and (max-device-width : 1024px){
     max-width: 750px;
     min-height: 100%;
     margin: 0 auto;
-    /*overflow: hidden;*/
+    overflow: hidden;
     background-color: #fff;
 }
 [v-cloak] {

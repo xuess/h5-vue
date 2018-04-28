@@ -71,8 +71,8 @@
     overflow: hidden;
     background: #fff;
     position: fixed;
-    top: 0;
-/*    top: 44px;*/
+    /*top: 0;*/
+    top: 44px;
     z-index: 100;
 }
 .tabs-wrapper >div{

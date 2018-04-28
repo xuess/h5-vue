@@ -1,0 +1,117 @@
+{
+    "code": 0,
+    "msg": "处理成功",
+    "data": {
+        "banner_list": [
+            {
+                "layout_type": "lunbo",
+                "module_list": [
+                    {
+                        "image_url": "https://y.taofen8.com/6e6b6dd307274f9c88dd9fba59762701.jpg",
+                        "title": "鞋靴",
+                        "action": {
+                            "link_name": "鞋靴",
+                            "link_type": "wap",
+                            "link_value": "http://quan.tfbcoupon.com/h5/collection/detail?id=771&channel=4&_path=9001.BAH.771&banner=771&pid=mm"
+                        }
+                    }
+                ]
+            },
+            {
+                "layout_type": "3c1h",
+                "module_list": [
+                    {
+                        "image_url": "https://y.taofen8.com/b3a5c4ddf7c542d9b9abae45710f4587.jpg",
+                        "title": "聚特卖",
+                        "action": {
+                            "link_name": "聚特卖",
+                            "link_type": "topic",
+                            "link_value": "jutemai"
+                        }
+                    },
+                    {
+                        "image_url": "https://y.taofen8.com/11489897dc3b4fe08266e2ada289a4cd.jpg",
+                        "title": "销量榜单",
+                        "action": {
+                            "link_name": "销量榜单",
+                            "link_type": "topic",
+                            "link_value": "xiaoliangbang"
+                        }
+                    },
+                    {
+                        "image_url": "https://y.taofen8.com/c758b8fb6a3a45e2b2a87e9d2c225640.jpg",
+                        "title": "大牌秒杀",
+                        "action": {
+                            "link_name": "大牌秒杀",
+                            "link_type": "topic",
+                            "link_value": "dapaimiaosha"
+                        }
+                    },
+                    {
+                        "image_url": "https://y.taofen8.com/7fbd06881af94db59cbfa4e200aa09cb.jpg",
+                        "title": "9.9包邮",
+                        "action": {
+                            "link_name": "9.9包邮",
+                            "link_type": "topic",
+                            "link_value": "baoyou"
+                        }
+                    }
+                ]
+            }
+        ],
+        "category_list": [
+            {
+                "name": "全部",
+                "id": "0"
+            },
+            {
+                "name": "女装",
+                "id": "1321"
+            },
+            {
+                "name": "百货",
+                "id": "1323"
+            },
+            {
+                "name": "美食",
+                "id": "1322"
+            },
+            {
+                "name": "美妆",
+                "id": "1324"
+            },
+            {
+                "name": "鞋包",
+                "id": "1325"
+            },
+            {
+                "name": "内衣",
+                "id": "1326"
+            },
+            {
+                "name": "男装",
+                "id": "1327"
+            },
+            {
+                "name": "母婴",
+                "id": "1328"
+            },
+            {
+                "name": "手机周边",
+                "id": "1329"
+            },
+            {
+                "name": "配饰",
+                "id": "1330"
+            },
+            {
+                "name": "其他",
+                "id": "1331"
+            },
+            {
+                "name": "成人用品",
+                "id": "1332"
+            }
+        ]
+    }
+}

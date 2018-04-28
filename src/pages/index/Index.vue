@@ -1,7 +1,7 @@
 <template>
 	<div id="J_index">
 		<!--搜索框-->
-		<!--<div style="width: 100%; height: 44px;">
+		<div style="width: 100%; height: 44px;">
 			<div class="search">
 				<a href="#" class="search-href">
 					<form action="javascript:return true;" class="form">
@@ -13,7 +13,7 @@
 					</form>
 				</a>
 			</div>
-		</div>-->
+		</div>
 		<!--tabs-->
 		<div style="width: 100%; height: 40px;">
 			<div class="tabs-wrapper">
@@ -110,7 +110,7 @@
 								<img  src="//oss3.lanlanlife.com/3f681b35cd2518c925786f7b44e24cf8_26x26.png" class="tabsImg" v-if="item.is_jhs">{{item.title}}
 					            </h1>
 							<p class="rec">{{item.desc}}</p>
-							<div class="count"><span>原价 {{item.old_price}}元</span> <span class="alreadyBuy">{{item.sales_num}} 人已购</span></div>
+							<div class="count"><span>{{item.old_price}}</span> <span class="alreadyBuy">{{item.sales_num}} 人已购</span></div>
 							<div class="coupon">
 								<div class="price">
 									¥<b>{{item.price}}</b></div>
@@ -194,6 +194,7 @@
 						list.push(this.goodsList[i].goods_id)
 					}
 				}
+				console.log('上一页数据：',list)
 				return list
 			}
 		},
@@ -247,9 +248,9 @@
 					})
 					.then(res => {
 						console.log(res)
-						if(res.success) {
-							this.bannerList = res.banner_list;
-							this.categoryList = res.category_list;
+						if(res && res.code == 0) {
+							this.bannerList = res.data.banner_list;
+							this.categoryList = res.data.category_list;
 							//							this.secondCategoryList = res.second_category_list;
 						}
 						//loading 图标
@@ -311,15 +312,15 @@
 				api.getGoodsList(params)
 					.then(res => {
 						console.log(res)
-						if(res.success) {
+						if(res && res.code == 0) {
 							//结果为空 则为最后一页
-							if(res.goods_list.length == 0) {
+							if(res.data.goods_list.length == 0) {
 								this.isLastPage = true
 							} else {
 								if(this.goodsList.length == 0) {
-									this.goodsList = res.goods_list
+									this.goodsList = res.data.goods_list
 								} else {
-									this.goodsList = this.goodsList.concat(res.goods_list)
+									this.goodsList = this.goodsList.concat(res.data.goods_list)
 								}
 								//不能加载
 								this.busy = false;
@@ -531,8 +532,8 @@
 		z-index: 100;
 		position: fixed;
 		width: 100%;
-		top: 40px;
-		/*top: 84px;*/
+		/*top: 40px;*/
+		top: 84px;
 	}
 	
 	.sort-bar {
@@ -722,6 +723,7 @@
 		color: #FB5413;
 		font-size: 14px;
 		white-space: nowrap;
+		overflow: hidden;
 	}
 	
 	.goodsOne .item-info .title .text img {
