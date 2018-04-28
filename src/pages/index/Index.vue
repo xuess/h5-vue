@@ -1,7 +1,7 @@
 <template>
 	<div id="J_index">
 		<!--搜索框-->
-		<div style="width: 100%; height: 44px;">
+		<div style="height: 44px;">
 			<div class="search">
 				<router-link :to="{ path: 'search', query: {  }}">
 					<form action="javascript:return true;" class="form">
@@ -15,7 +15,7 @@
 			</div>
 		</div>
 		<!--tabs-->
-		<div style="width: 100%; height: 40px;">
+		<div style="height: 40px;">
 			<div class="tabs-wrapper">
 				<div style="position: relative;">
 					<div id="tabs" class="tabs">

@@ -156,7 +156,7 @@ and (max-device-width : 1024px){
 
 #app{
     position: relative;
-    max-width: 750px;
+    max-width: 640px;
     min-height: 100%;
     margin: 0 auto;
     overflow: hidden;

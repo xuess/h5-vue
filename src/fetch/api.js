@@ -91,7 +91,7 @@ export default {
 	 * 分享相关
 	 */
 	getShareInfo(params) {
-		return fetch('http://m.haoquanzhiboba.com/wechat/getSignatureJson', params)
+		return fetch('/getSignatureJson', params)
 	},
 
 }

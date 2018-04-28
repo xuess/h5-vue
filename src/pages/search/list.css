@@ -1,5 +1,6 @@
 .head{
     width: 100%;
+    max-width: 640px;
     height: 44px;
     line-height: 44px;
     color: #FFF;

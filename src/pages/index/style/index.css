@@ -7,6 +7,7 @@
 /* 搜索 栏 */
 .search{
     width: 100%;
+    max-width: 640px;
     padding: 7px 14px;
     background-image: -webkit-gradient(linear, left top, right top, from(#FA7C54), to(#FD3F69));
     background-image: -webkit-linear-gradient(left, #FA7C54 0%, #FD3F69 100%);
@@ -67,6 +68,7 @@
 /* Tab 栏 */
 .tabs-wrapper {
     width: 100%;
+    max-width: 640px;
     height: 40px;
     overflow: hidden;
     background: #fff;
@@ -150,6 +152,7 @@
 
 .categorys{
     width: 100%;
+    max-width: 640px;
     height: 100%;
     background: rgba(0, 0, 0, .6);
     z-index: 999;
