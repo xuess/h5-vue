@@ -7,7 +7,7 @@ import Topic from '@/pages/topic/Topic';
 Vue.use(Router);
 
 export default new Router({
-//	mode: 'history',
+  mode: 'history',
   routes: [
     {
       path: '/',
