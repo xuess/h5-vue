@@ -1,6 +1,21 @@
 # vue-h5
 
-> A Vue.js project
+> 一个vue全家桶项目，项目功能是`找券平台`，一个淘客网站，页面有4个，
+>
+>首页，主题页，商品商品详情页，搜索页
+>
+>`jsonData` 为测试数据，如果想测试 请放到具体的服务器上，然后开启 `cors` 跨域
+>
+>推荐使用 chrome 插件 `CORS Toggle`  chrome 商店ID： jioikioepegflmdnbocfhgmpmopmjkim
+>
+>接口详见 src/fetch/api.js
+>
+>目前项目接口都是用的是 `http://vueh5.xueshanshan.top/api` 地址
+>
+>项目在线demo：`http://vueh5.xueshanshan.top`
+
+
+
 
 ## Build Setup
 
@@ -8,7 +23,7 @@
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8086
+# serve with hot reload at localhost:8082
 npm run dev
 
 # build for production with minification
@@ -46,7 +61,7 @@ npm i vuex --save
 npm i axios --save
 
 # 修改端口号（我的被占用了）
-/config/index.js  port: 8086
+/config/index.js  port: 8082
 
 # 关闭语法验证 个人开发不开了， 以后按需要开启 
 /config/index.js -> useEslint: false,
@@ -61,14 +76,4 @@ npm i vue-infinite-scroll --save
 npm i vue-awesome-swiper --save
 
 ```
-
-
-
->`doc` 目录是接口文档信息，可以参考 入参出参和数据返回格式
->
->`jsonData` 为测试数据，如果想测试 请放到具体的服务器上，然后开启 `cors` 跨域
->
->推荐使用 chrome 插件 `CORS Toggle`  chrome 商店ID： jioikioepegflmdnbocfhgmpmopmjkim
->
->接口详见 src/fetch/api.js 记得修改-> axios.defaults.baseURL = 'http://127.0.0.1:8888/'
 
