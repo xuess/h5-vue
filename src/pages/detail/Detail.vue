@@ -15,20 +15,21 @@
 					<div class="detail-info">
 						<h3>  <i class="icon tmall"></i> <span>{{goodsData.title}}</span></h3>
 						<p class="rec" v-if="goodsData.desc">{{goodsData.desc}}</p>
-						<div class="price"><span class="title">券后价</span> <span class="yPrice">¥{{goodsData.price | formatDoubleStart}}<s>{{goodsData.price | formatDoubleEnd}}</s></span> <span class="oPrice">¥{{goodsData.old_price}}</span> <span class="monthSales">{{goodsData.sales_num}}人已购</span></div>
+						<div class="price"><span class="title">券后价</span> <span class="yPrice">¥{{goodsData.price | formatDoubleStart}}<s>{{goodsData.price | formatDoubleEnd}}</s></span> <span class="oPrice">¥{{goodsData.origin_price}}</span> <span class="monthSales">{{goodsData.sales_num}}人已购</span></div>
 					</div>
 					<div class="divide"></div>
 					<div class="tpwd-copy">
 						<button class="copy-btn"><img src="//oss.lanlanlife.com/3f75c9aed0c58300540c04ea703a3be2_36x36.png">
                             <span id="copy-trigger-tpwd" data-clipboard-target="#copy_tpwd">一键复制淘口令</span>
-                        </button>
+                         </button>
 						<div class="copy-area">
 							<div>
 								<p id="copy_tpwd">{{goodsData.prd_code}}</p>
 							</div> <span>长按全选复制文字，然后打开［手机淘宝］即可领券购买</span></div>
 					</div>
 					<div class="coupon">
-						<a :href="goodsData.buy_url"><span class="amount"><s>￥</s><b>{{goodsData.coupon_num}}</b></span><span class="time"><s><i>优惠券</i>使用期限</s><b>{{goodsData.coupon_date}}</b></span><span class="go-coupon">立即领券</span></a>
+<!--						<a :href="goodsData.buy_url"><span class="amount"><s>￥</s><b>{{goodsData.voucher_price | formatDoubleStart}}</b></span><span class="time"><s><i>优惠券</i>使用期限</s><b>{{goodsData.voucher_date}}</b></span><span class="go-coupon">立即领券</span></a>-->
+						<a href="javascript:;" @click="openAlert('code')"><span class="amount"><s>￥</s><b>{{goodsData.voucher_price | formatDoubleStart}}</b></span><span class="time"><s><i>优惠券</i>使用期限</s><b>{{goodsData.voucher_date}}</b></span><span class="go-coupon">立即领券</span></a>
 					</div>
 					<div class="recommend"><label>推荐语</label>
 						<p>“{{goodsData.recommend_str}}”</p>
@@ -40,8 +41,8 @@
 					<div class="divide"></div>
 					<div class="multi-image">
 						<p v-if="!isShowDetailImages"><button @click="showDetailImg">查看图文详情</button></p>
-						<template v-if="isShowDetailImages"> 
-							<img :src="item" v-for="item in goodsData.detail_images"/>
+						<template v-if="isShowDetailImages">
+							<img :src="item" v-for="item in goodsData.detail_images" />
 						</template>
 					</div>
 				</section>
@@ -58,7 +59,8 @@
 						<a href="javascript:;" @click="openAlert('code')">复制淘口令</a>
 					</li>
 					<li class="btn browser">
-						<a :href="goodsData.buy_url" data-collection="_path=9001.CA.1321.i.560532820633.e.0">领券购买</a>
+						<!--<a :href="goodsData.buy_url" >领券购买</a>-->
+						<a href="javascript:;" @click="openAlert('code')">领券购买</a>
 					</li>
 				</ul>
 			</footer>
@@ -71,13 +73,13 @@
 	import { mapActions } from 'vuex'
 	import TextAlert from '@/pages/detail/TextAlert'
 	import api from '@/fetch/api'
+	import share from '@/assets/js/share'
 	import Clipboard from 'clipboard'
 	// require styles
 	import 'swiper/dist/css/swiper.css'
-	
 
 	import { swiper, swiperSlide } from 'vue-awesome-swiper'
-	
+
 	export default {
 		components: {
 			swiper,
@@ -88,7 +90,7 @@
 			return {
 				swiperOption: {
 					// 所有配置均为可选（同Swiper配置） 
-					loop : true,
+					loop: true,
 					notNextTick: true,
 					autoplay: 3000,
 					grabCursor: true,
@@ -104,26 +106,26 @@
 				//弹窗类别 img = 分享图片 code = 复制淘口令 
 				alertTpye: 'code',
 				//分享图片url
-				prdCodeImgUrl:'',
+				prdCodeImgUrl: '',
 				//显示商品详情页
-				isShowDetailImages:false,
+				isShowDetailImages: false,
 				//商品数据
 				goodsData: {
 					"goods_id": "",
-			        "img_list": [],
-			        "title": "",
-			        "desc": "",
-			        "is_tmall": false,
-			        "is_jhs": false,
-			        "old_price": "00.00",
-			        "price": "00.00",
-			        "sales_num": "0",
-			        "prd_code": "",
-			        "coupon_num": "",
-			        "coupon_date": "",
-			        "recommend_str": "",
-			        "buy_url": "",
-			        "detail_images": []
+					"img_list": [],
+					"title": "",
+					"desc": "",
+					"is_tmall": false,
+					"is_jhs": false,
+					"origin_price": "00.00",
+					"price": "00.00",
+					"sales_num": "0",
+					"prd_code": "",
+					"coupon_num": "",
+					"coupon_date": "",
+					"recommend_str": "",
+					"buy_url": "",
+					"detail_images": []
 				}
 			}
 		},
@@ -139,38 +141,57 @@
 		mounted() {
 			//一键复制
 			this.copyBuyCode()
+			//自动选中
+			document.addEventListener("selectionchange", function(e) {
+				if(window.getSelection().anchorNode.parentNode.id == 'copy_tpwd' && document.getElementById('copy_tpwd').innerText != window.getSelection()) {
+					var key = document.getElementById('copy_tpwd');
+					window.getSelection().selectAllChildren(key);
+				}
+			}, false)
+
+			//获取 淘口令
+			api.getPrdCode({
+					"goodsId": this.$route.query.goods_id
+				})
+				.then(res => {
+					console.log(res)
+					if(res && res.code == 0) {
+						this.goodsData.prd_code = res.data
+					}
+				})
+
 		},
 		//计算属性
 		computed: {
 			swiper() {
 				return this.$refs.mySwiper.swiper;
 			},
-			prdCodeDetail(){
+			prdCodeDetail() {
 				let res = []
-				if(this.goodsData != null){
+				if(this.goodsData != null) {
 					res.push(this.goodsData.title);
-					res.push(`【原价】:${this.goodsData.old_price}元`) 
-					res.push(`【券后】: ${this.goodsData.price}元秒杀[闪电]`) 
-//					res.push(`优惠下单：http://quan.tfbcoupon.com/x/5b735f3c`) 
-					res.push(`【复制打开手机淘宝】`) 
-					res.push(`领取下单${this.goodsData.prd_code}`) 
-					res.push(`【推荐语】:${this.goodsData.recommend_str}`) 
+					res.push(`【原价】:${this.goodsData.origin_price}元`)
+					res.push(`【券后】: ${this.goodsData.price}元秒杀[闪电]`)
+					//res.push(`优惠下单：http://quan.tfbcoupon.com/x/5b735f3c`) 
+					res.push(`【复制打开手机淘宝】`)
+					res.push(`领取下单${this.goodsData.prd_code}`)
+					res.push(`【推荐语】:${this.goodsData.recommend_str}`)
 				}
 				return res
 			}
 		},
 		methods: {
 			//一键复制淘口令
-			copyBuyCode(){
+			copyBuyCode() {
 				let clipboardCode = new Clipboard('#copy-trigger-tpwd');
-			
+
 				clipboardCode.on('success', function(e) {
 					e.trigger.innerHTML = "复制成功";
 					setTimeout(() => {
 						e.trigger.innerHTML = '一键复制淘口令';
 					}, 2000);
 				});
-		
+
 				clipboardCode.on('error', function(e) {
 					e.trigger.innerHTML = "复制失败，请长按复制";
 					setTimeout(() => {
@@ -179,45 +200,43 @@
 				});
 			},
 			//领券
-			goGetCoupon(){
-				
+			goGetCoupon() {
+
 			},
 			//显示详情图片
-			showDetailImg(){
+			showDetailImg() {
 				this.isShowDetailImages = true
 			},
 			//获取 详情页数据
 			getDetailData() {
 				//获取首屏数据
 				api.getDetail({
-						"goods_id": this.$route.query.goods_id
+						"goodsId": this.$route.query.goods_id
 					})
 					.then(res => {
 						console.log(res)
-						if(res.success) {
-							this.goodsData = res.goods
+						if(res && res.code == 0) {
+							this.goodsData = res.data
+							//设置分享
+							share(location.href.split('#')[0], this.goodsData.title, this.goodsData.recommend_str, this.goodsData.img_list[0])
 						}
+						
+						
+						
 					})
 			},
 			//打开淘口令弹窗
-			openAlert(type){
+			openAlert(type) {
 				this.alertTpye = type
 				this.showAlert = true
 			},
 			//生成分享二维码图片
-			openShareImg(){
-				api.getPrdCodeImgUrl({goods_id:this.$route.query.goods_id})
-					.then(res => {
-						if(res.success) {
-							this.prdCodeImgUrl = res.goods_img_url
-							
-							this.openAlert('img')
-						}
-						
-					})
+			openShareImg() {
+				this.prdCodeImgUrl = this.goodsData.share_img_url
+				this.openAlert('img')
 			},
 			//关闭弹窗
-			closeAlert(){
+			closeAlert() {
 				this.showAlert = false
 			}
 		},
@@ -230,8 +249,7 @@
 
 <style lang="scss" scoped>
 	@import '../../assets/css/function';
-	
-	.swiper-item img{
+	.swiper-item img {
 		width: 100%;
 	}
 	
@@ -810,6 +828,7 @@
 	
 	.multi-image img {
 		width: 100%;
+		display: block;
 		-webkit-touch-callout: default;
 	}
 	
@@ -980,8 +999,9 @@
 		border-radius: 4px;
 		background: #FFF;
 	}
+	
 	.swiper-pagination-bullet-active {
-	    opacity: 1;
-	    background: #FFFFFF!important;
+		opacity: 1;
+		background: #FFFFFF!important;
 	}
 </style>

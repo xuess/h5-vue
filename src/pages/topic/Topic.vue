@@ -3,7 +3,7 @@
 		<div style="width: 100%; height: 44px;">
 			<div class="head">
 				<a href="javascript:history.go(-1);" class="back"></a>
-				<span>{{findType}}</span>
+				<span>{{title}}</span>
 			</div>
 		</div>
 		
@@ -57,7 +57,9 @@
 				pageNo: this.$route.query.page_no || 0,
 				//查找类型，区分主题商品
 				findType: this.$route.query.find_type || '',
-
+				//title
+				title: this.$route.query.title || '',
+				
 			}
 		},
 		//创建之前
@@ -99,26 +101,27 @@
 				//loading 图标
 				this.setLoadingState(true)
 				let params = {
-					"find_type": this.findType,
+					"channelType": this.findType,
 					"first_cid": 0,
 					"second_cid": 0,
-					"page_no": this.pageNo += 1,
-					"page_size": 12,
+					"pageNo": this.pageNo += 1,
+					"pageSize": 12,
 					"exsit_goodsid_list": this.exsitGoodsidList,
 					"sort_type": 1
 				};
 				api.getGoodsList(params)
 					.then(res => {
 						console.log(res)
-						if(res.success) {
+						if(res && res.code == 0) {
+							
 							//结果为空 则为最后一页
-							if(res.goods_list.length == 0) {
+							if(res.data.goods_list.length == 0) {
 								this.isLastPage = true
 							} else {
 								if(this.topicGoodsList.length == 0) {
-									this.topicGoodsList = res.goods_list
+									this.topicGoodsList = res.data.goods_list
 								} else {
-									this.topicGoodsList = this.topicGoodsList.concat(res.goods_list)
+									this.topicGoodsList = this.topicGoodsList.concat(res.data.goods_list)
 								}
 								//不能加载
 								this.busy = false;

@@ -3,7 +3,7 @@
 		<!--搜索框-->
 		<div style="width: 100%; height: 44px;">
 			<div class="search">
-				<a href="#" class="search-href">
+				<router-link :to="{ path: 'search', query: {  }}">
 					<form action="javascript:return true;" class="form">
 						<div class="placeholder">
 							<button type="button"></button>
@@ -11,7 +11,7 @@
 						</div>
 						<input type="search" disabled="disabled">
 					</form>
-				</a>
+				</router-link>
 			</div>
 		</div>
 		<!--tabs-->
@@ -46,20 +46,20 @@
 				<!--主题资源-->
 				<div class="row topic-wrapper" v-if="item.module_list.length > 0">
 					<div class="col c4">
-						<router-link :to="{ path: 'topic', query: { find_type: item.module_list[0].title}}">
+						<router-link :to="{ path: 'topic', query: { find_type: item.module_list[0].action.link_value, title : item.module_list[0].title}}">
 							<img :src="item.module_list[0].image_url">
 						</router-link>
 					</div>
 					<div class="col c8">
 						<div class="topic-right">
-							<router-link :to="{ path: 'topic', query: { find_type: item.module_list[1].title}}">
+							<router-link :to="{ path: 'topic', query: { find_type: item.module_list[1].action.link_value, title : item.module_list[1].title}}">
 								<img :src="item.module_list[1].image_url">
 							</router-link>
 							<div class="row down">
-								<router-link class="col c6" :to="{ path: 'topic', query: { find_type: item.module_list[2].title}}">
+								<router-link class="col c6" :to="{ path: 'topic', query: { find_type: item.module_list[2].action.link_value, title : item.module_list[2].title}}">
 									<img :src="item.module_list[2].image_url">
 								</router-link>
-								<router-link class="col c6" :to="{ path: 'topic', query: { find_type: item.module_list[3].title}}">
+								<router-link class="col c6" :to="{ path: 'topic', query: { find_type: item.module_list[3].action.link_value, title : item.module_list[3].title}}">
 									<img :src="item.module_list[3].image_url">
 								</router-link>
 							</div>
@@ -86,7 +86,7 @@
 		<!--商品列表-->
 		<div class="items" id="J_goodsList">
 			<!--排序条-->
-			<div style="height: 40px;" id="J_sortBar">
+			<!--<div style="height: 40px;" id="J_sortBar">
 				<div :class="{Affix : Affix}">
 					<div class="sort-bar">
 						<div class="sort-tool">
@@ -97,7 +97,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>-->
 
 			<!--商品流-->
 			<div v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="10">
@@ -110,11 +110,11 @@
 								<img  src="//oss3.lanlanlife.com/3f681b35cd2518c925786f7b44e24cf8_26x26.png" class="tabsImg" v-if="item.is_jhs">{{item.title}}
 					            </h1>
 							<p class="rec">{{item.desc}}</p>
-							<div class="count"><span>{{item.old_price}}</span> <span class="alreadyBuy">{{item.sales_num}} 人已购</span></div>
+							<div class="count"><span>{{item.is_tmall ?'天猫价':'淘宝价'}}{{item.origin_price}}</span> <span class="alreadyBuy">{{item.sales_num}} 人已购</span></div>
 							<div class="coupon">
 								<div class="price">
 									¥<b>{{item.price}}</b></div>
-								<div class="count-label"><strong>{{item.coupon_num}}</strong>元 券
+								<div class="count-label"><strong>{{item.voucher_price | formatDoubleStart}}</strong>元 券
 								</div>
 							</div>
 						</div>
@@ -139,7 +139,7 @@
 //	import * as _ from '@/util/tool'
 	import Swipe from '@/components/Swipe'
 	import { _debounceTail } from '@/util/tool'
-
+//	import share from '@/assets/js/share'
 	import ScrollTop from '@/components/ScrollTop'
 
 	export default {
@@ -180,9 +180,13 @@
 			//加载商品数据
 			this.loadMore();
 			//商品排序条位置固定
-			this.sortBarScroll();
+//			this.sortBarScroll();
 			//滚动到顶部
 			window.scrollTo(0,0)
+			
+			//设置分享
+//			share(location.href.split('#')[0], this.goodsData.title, this.goodsData.recommend_str, this.goodsData.img_list[0])
+		
 		},
 		//计算属性
 		computed: {
@@ -234,16 +238,20 @@
 			...mapActions([
 				'setLoadingState'
 			]),
+			//去搜索页
+			toSearch(){
+				router.push({ path: 'search', params: {  }})
+			},
 			openCategory() {
 				this.showCategory = !this.showCategory;
 			},
 			//获取首屏数据
 			getIndexData() {
 				//loading 图标
-				this.setLoadingState(true)
+//				this.setLoadingState(true)
 				//获取首屏数据
 				api.getIndexData({
-						"tabs_id": this.tabsId,
+						"firstCid": this.tabsId,
 						"category_id": this.categoryId
 					})
 					.then(res => {
@@ -251,10 +259,10 @@
 						if(res && res.code == 0) {
 							this.bannerList = res.data.banner_list;
 							this.categoryList = res.data.category_list;
-							//							this.secondCategoryList = res.second_category_list;
+							//this.secondCategoryList = res.second_category_list;
 						}
 						//loading 图标
-						this.setLoadingState(false)
+//						this.setLoadingState(false)
 					})
 			},
 
@@ -302,11 +310,11 @@
 				//exsit_goodsid_list	array	上页的商品id列表(传6个)格式：6,5,4,3,2,2
 				//sort_type	是	string	排序 1=精选，2=销量 ，3=最新，4=价格低到高 ，5=价格高到低
 				let params = {
-					"first_cid": this.tabsId,
+					"firstCid": this.tabsId,
 					"second_cid": this.categoryId,
-					"page_no": this.pageNo += 1,
-					"page_size": this.pageSize,
-					"exsit_goodsid_list": this.exsitGoodsidList,
+					"pageNo": this.pageNo += 1,
+					"pageSize": this.pageSize,
+					"exsitIdList": JSON.stringify(this.exsitGoodsidList),
 					"sort_type": this.sortType
 				};
 				api.getGoodsList(params)
@@ -718,12 +726,14 @@
 	}
 	
 	.goodsOne .item-info p.rec {
+		width: 2.17rem;
 		height: 20px;
 		line-height: 20px;
 		color: #FB5413;
 		font-size: 14px;
 		white-space: nowrap;
 		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 	
 	.goodsOne .item-info .title .text img {
@@ -816,7 +826,11 @@
 	.last-page {
 		width: 100%;
 		p {
+			color: #333;
 			text-align: center;
+			height: 40px;
+			line-height: 40px;
+			font-size: 14px;
 		}
 	}
 </style>
