@@ -10,9 +10,9 @@
 >
 >接口详见 src/fetch/api.js
 >
->目前项目接口都是用的是 `http://vueh5.xueshanshan.top/api` 地址
+>目前项目接口都是用的是 `http://vueh5.xueshanshan.com/api` 地址
 >
->项目在线demo：`http://vueh5.xueshanshan.top`
+>项目在线demo：`http://vueh5.xueshanshan.com`
 
 
 
