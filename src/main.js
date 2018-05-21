@@ -3,6 +3,7 @@ import App from './App';
 import router from './router';
 import Vuex from 'vuex'
 import store from './store'
+import "babel-polyfill";
 import * as filters from './util/filter'
 // 注册全局 瀑布流
 import infiniteScroll from 'vue-infinite-scroll'
